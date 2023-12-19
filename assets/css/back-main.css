@@ -1,0 +1,259 @@
+* {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.errorMsg {
+    color: #e22e2e;
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+.successMsg {
+    color: #02ca4e;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.successMsg a {
+    color: #0059ff;
+    font-weight: bold;
+}
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #d3d3d357;
+    overflow: hidden;
+}
+button {
+    cursor: pointer;
+}
+main {
+    width: 100%;
+    height: 100%;
+}
+.login-cont {
+    width: 100%;
+    height: 100%;
+}
+.login-cont .login {
+    width: 400px;
+    box-shadow: 2px 4px 12px 4px rgba(0, 0, 0, 0.559);
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #fff;
+}
+.login-cont .login h2 {
+    color: #0059ff;
+    font-size: 18px;
+    font-weight: bold;
+}
+.login-cont .login form p {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.login-cont .login form p label {
+    font-weight: bold;
+}
+.login-cont .login form p input {
+    padding: 10px;
+    outline: 0;
+}
+.login-cont .login form p button {
+    color: aliceblue;
+    background: #0059ff;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+section.main-section {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgb(39, 39, 39);
+    overflow: auto;
+}
+section.main-section header {
+    width: 100vw;
+    background: #02ca4e;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+}
+section.main-section header .menu {
+    /* flex: 1; */
+    padding: 10px;
+}
+section.main-section header .menu button {
+    border: 0;
+    background: transparent;    
+}
+section.main-section header .menu button i {
+    font-size: 24px;
+    color: #fff;
+}
+section.main-section header .username {
+    flex: 4;
+    padding: 10px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+}
+section.main-section header .logo {
+    text-align: right;
+    flex: 2;
+    padding: 10px;
+}
+section.main-section header .logo img {
+    width: 30px;
+}
+
+section.main-section .hero {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+section.main-section .hero .left-nav {
+    width: 250px;
+    height: calc(100vh - 50px);
+    background: #0059ff;
+}
+section.main-section .hero .left-nav .left-nav-cont {
+    padding: 10px;
+}
+section.main-section .hero .left-nav .left-nav-cont .nav {
+    margin-top: 10px;
+}
+section.main-section .hero .left-nav .left-nav-cont .nav h2 {
+    color: #dadada;
+    font-size: 22px;
+    border-bottom: 2px solid #b4b4b4;
+}
+section.main-section .hero .left-nav .left-nav-cont .nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+section.main-section .hero .left-nav .left-nav-cont .nav ul li {
+    margin-top: 10px;
+}
+section.main-section .hero .left-nav .left-nav-cont .nav ul li a {
+    color: #fff;
+}
+section.main-section .dashboard {
+    /* width: calc(100vw - 250px); */
+    height: calc(100vh - 50px);
+    overflow: auto;
+    flex: 1;
+}
+section.main-section .dashboard .dashboard-cont {
+    padding: 10px;
+}
+section.main-section .dashboard .dashboard-cont h1 {
+    color: #b4b4b4;
+    font-size: 22px;
+}
+section.main-section .dashboard .dashboard-cont .boards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 16px;
+    margin-top: 20px;
+}
+section.main-section .dashboard .dashboard-cont .boards-row .board-box {
+    background: #b4b4b4;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+section.main-section .dashboard .dashboard-cont .boards-row .board-box .ctz {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+section.main-section .dashboard .dashboard-cont .boards-row .board-box .ctz span {
+    margin-left: 10px;
+}
+section.main-section .dashboard .dashboard-cont .boards-row .board-box h4 {
+    font-size: 20px;
+}
+section.main-section .dashboard .form-row {
+    margin-top: 10px;
+    /* background: #828080; */
+    padding: 10px;
+    border-radius: 10px;
+}
+section.main-section .dashboard .form-row form p{
+    margin-top: 10px;
+    color: #fff;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+section.main-section .dashboard .form-row form p input,
+section.main-section .dashboard .form-row form p textarea,
+section.main-section .dashboard .form-row form p select {
+    padding: 10px;
+    background: transparent;
+    margin-top: 10px;
+    border: 1px solid #fff;
+    color: #dadada;
+    font-weight: bold;
+    letter-spacing: 2px;
+    outline: 0;
+}
+section.main-section .dashboard .form-row form p textarea {
+    height: 100px;
+}
+section.main-section .dashboard .form-row form p button {
+    padding: 10px;
+    background: #0059ff;
+    border: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+section.main-section .dashboard .form-row table {
+    width: 100%;
+}
+
+section.main-section .dashboard .form-row table thead {
+    background: #0059ff;
+    color: #fff;
+}
+section.main-section .dashboard .form-row table thead th {
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+@media (width<= 768px) {
+    * {
+        font-size: 10px;
+    }
+    .login-cont .login {
+        width: 80%;
+    }
+}
