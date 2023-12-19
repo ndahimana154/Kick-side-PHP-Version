@@ -173,7 +173,7 @@
                         if (mysqli_num_rows($get_latest) < 1) {
                             ?>
                             <div class="errorMsg">
-                                No article found!
+                                <!-- No article found! -->
                             </div>
                             <?php
                         }

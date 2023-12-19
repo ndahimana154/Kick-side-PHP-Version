@@ -201,6 +201,7 @@ section.hero  .hero-cont .hero-description h2 {
 section.hero  .hero-cont .hero-description .author {
   display: flex;
   flex-direction: row;
+  text-transform: capitalize;
   flex: 3;
 }
 section.hero  .hero-cont .hero-description .author i {
@@ -209,6 +210,7 @@ section.hero  .hero-cont .hero-description .author i {
 }
 section.hero  .hero-cont .hero-description .author p {
   color: #11ae50;
+  text-transform: capitalize;
 }
 
 section.below-hero {
@@ -295,9 +297,10 @@ article.read-article .article-cont .intro .info .author {
 article.read-article .article-cont .intro .info .author a {
   text-transform: capitalize;
   font-weight: 400;
+  color: #11ae50;
 }
 article.read-article .article-cont .intro .info .author a i {
-  /* color: #11ae50; */
+  color: #11ae50;
 }
 article.read-article .article-cont .intro .info  .btnz {
   margin-top: 20px;
@@ -324,6 +327,7 @@ article.read-article .article-cont .article-full {
 article.read-article .article-cont .article-full .full-left pre {
   font-size: 18px;
   white-space: pre-wrap;
+  font-weight: 600;
 }
 
 
