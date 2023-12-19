@@ -131,7 +131,7 @@ include("../assets/php/journalists/session_mgt.php");
                                     <label for="Article Overview">
                                         Article in Details
                                     </label>
-                                    <textarea name="details"  placeholder="Type..." required></textarea>
+                                    <textarea name="details"  placeholder="Type..."  class="full" required></textarea>
                                 </p>
                                 <p>
                                     <button type="submit" name="post_article">

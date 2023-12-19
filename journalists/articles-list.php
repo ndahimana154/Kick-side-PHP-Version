@@ -34,19 +34,77 @@ include("../assets/php/journalists/session_mgt.php");
                                             # 
                                         </th>
                                         <th>
+                                            Article Genre
+                                        </th>
+                                        <th>
                                             Article Title 
                                         </th>
                                         <th>
-                                            Article Overview
+                                            Article Views
                                         </th>
                                         <th>
-                                            Article Category
+                                            Article Genre
                                         </th>
                                         <th>
                                             Actions 
                                         </th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <?php
+                                        $getArticles = mysqli_query($server, "SELECT * from 
+                                            news_articles,genres
+                                            WHERE 
+                                            news_articles.article_genre = genres.id AND
+                                            article_author = '$acting_jou_id'
+                                            ORDER BY article_publish_time DESC
+                                        ") or die(mysqli_error($conn));
+                                        if (mysqli_num_rows($getArticles) < 1) {
+                                            ?>
+                                            <tr>
+                                                <td colspan="20">
+                                                    No values found...
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        else {
+                                            $count = 1;
+                                            while ($rowArticles = mysqli_fetch_assoc($getArticles)) {
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php echo $count++ ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $rowArticles["genre_name"]; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $rowArticles["article_title"]; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php 
+                                                            $articleId = $rowArticles["article_id"];
+                                                            $getViewsCount = mysqli_query($server,"SELECT * from news_articles_views
+                                                                WHERE article = '$articleId'
+                                                            ");
+                                                            echo mysqli_num_rows($getViewsCount);
+                                                        ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $rowArticles["article_publish_time"]; ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href="edit-article.php?a=<?php echo $articleId; ?>" class="edit">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                        }
+                                    ?>
+                                </tbody>
                             </table>
                         </div>
                     </div>

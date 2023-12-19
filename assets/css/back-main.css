@@ -81,16 +81,16 @@ section.main-section {
     left: 0;
     position: absolute;
     background: rgb(39, 39, 39);
-    overflow: auto;
+    overflow: hidden;
 }
 section.main-section header {
     width: 100vw;
-    background: #02ca4e;
     display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
     height: 50px;
+    border-bottom: 2px solid #02ca4e;
 }
 section.main-section header .menu {
     /* flex: 1; */
@@ -131,7 +131,8 @@ section.main-section .hero {
 section.main-section .hero .left-nav {
     width: 250px;
     height: calc(100vh - 50px);
-    background: #0059ff;
+    background: #d3d3d357;
+    box-shadow: 2px 4px 4px 2px #b4b4b40f;
 }
 section.main-section .hero .left-nav .left-nav-cont {
     padding: 10px;
@@ -140,9 +141,9 @@ section.main-section .hero .left-nav .left-nav-cont .nav {
     margin-top: 10px;
 }
 section.main-section .hero .left-nav .left-nav-cont .nav h2 {
-    color: #dadada;
+    color: #02ca4e;
     font-size: 22px;
-    border-bottom: 2px solid #b4b4b4;
+    border-bottom: 2px solid #02ca4e;
 }
 section.main-section .hero .left-nav .left-nav-cont .nav ul {
     list-style: none;
@@ -217,6 +218,9 @@ section.main-section .dashboard .form-row form p select {
     letter-spacing: 2px;
     outline: 0;
 }
+section.main-section .dashboard .form-row form p .full {
+    height: 800px;
+}
 section.main-section .dashboard .form-row form p textarea {
     height: 100px;
 }
@@ -229,7 +233,7 @@ section.main-section .dashboard .form-row form p button {
     color: #fff;
 }
 section.main-section .dashboard .form-row table {
-    width: 100%;
+    width: auto;
 }
 
 section.main-section .dashboard .form-row table thead {
@@ -239,7 +243,17 @@ section.main-section .dashboard .form-row table thead {
 section.main-section .dashboard .form-row table thead th {
     padding: 10px;
 }
-
+section.main-section .dashboard .form-row table tbody td {
+    color: #dadada;
+}
+section.main-section .dashboard .form-row table tbody td  a {
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+section.main-section .dashboard .form-row table tbody td .edit i {
+    color: #02ca4e;
+}
 
 
 
