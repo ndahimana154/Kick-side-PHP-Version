@@ -207,13 +207,17 @@ section.main-section .dashboard .form-row form p{
     font-size: 18px;
 }
 section.main-section .dashboard .form-row h2 {
-    color: #02ca4e;
+    color: #0059ff;
+    font-size: 20px;
 }
 section.main-section .dashboard .form-row .forms {
     display: flex;
     flex-direction: row;
 }
-
+section.main-section .dashboard .form-row .forms .left,
+section.main-section .dashboard .form-row .forms .right {
+    flex: 1;
+}
 section.main-section .dashboard .form-row form p input,
 section.main-section .dashboard .form-row form p textarea,
 section.main-section .dashboard .form-row form p select {
@@ -225,6 +229,7 @@ section.main-section .dashboard .form-row form p select {
     font-weight: bold;
     letter-spacing: 2px;
     outline: 0;
+    width: 80%;
 }
 section.main-section .dashboard .form-row form p .full {
     height: 800px;
@@ -239,6 +244,7 @@ section.main-section .dashboard .form-row form p button {
     border-radius: 5px;
     font-weight: bold;
     color: #fff;
+    width: 180px;
 }
 section.main-section .dashboard .form-row table {
     width: auto;

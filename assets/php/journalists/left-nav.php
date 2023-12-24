@@ -7,7 +7,7 @@
             <ul>
                 <li>
                     <a href="./add-article.php">
-                        <i class="fa fa-plus"></i>
+                        <i class="fa fa-plus-circle"></i>
                         new articles
                     </a>
                 </li>
