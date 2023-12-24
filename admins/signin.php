@@ -32,13 +32,13 @@ include("../assets/php/global/server.php");
                         $un = $_POST['userN'];
                         $pw = md5($_POST['passW']);
                         $check_credentials = mysqli_query($server, "SELECT * from admins
-                                WHERE (user_name = '$un' OR email = '$un')
-                                AND password = '$pw'
+                                WHERE  (BINARY user_name = '$un' OR BINARY email = '$un')
+                                AND BINARY password = '$pw'
                             ");
                         if (mysqli_num_rows($check_credentials) < 1) {
                             $check_journalist = mysqli_query($server,"SELECT * from journalists
-                                WHERE (user_name = '$un' OR email = '$un')
-                                AND password = '$pw'
+                                WHERE (BINARY user_name = '$un' OR BINARY email = '$un')
+                                AND BINARY  password = '$pw'
                             ");
                             if (mysqli_num_rows($check_journalist) < 1) {
                                 ?>
