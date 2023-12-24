@@ -268,7 +268,9 @@ section.main-section .dashboard .form-row table tbody td  a {
 section.main-section .dashboard .form-row table tbody td .edit i {
     color: #02ca4e;
 }
-
+section.main-section .dashboard .form-row table tbody td .image {
+    width: 30px;
+}
 
 
 

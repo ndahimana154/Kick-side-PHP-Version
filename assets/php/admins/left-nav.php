@@ -34,6 +34,25 @@
         </div>
         <div class="nav">
             <h2>
+                Team Personnel  
+            </h2>
+            <ul>
+                <li>
+                    <a href="./new-team.php">
+                        <i class="fa fa-plus-circle"></i>
+                        New Team
+                    </a>
+                </li>
+                <li>
+                    <a href="./teams-list.php">
+                        <i class="fa fa-user-friends"></i>
+                        Team Lists
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav">
+            <h2>
                 Settings
             </h2>
             <ul>

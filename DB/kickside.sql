@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 10, 2023 at 09:16 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Host: localhost
+-- Generation Time: Dec 24, 2023 at 02:50 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -103,6 +103,14 @@ CREATE TABLE `journalists` (
   `display_name` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'Working'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `journalists`
+--
+
+INSERT INTO `journalists` (`id`, `first_name`, `last_name`, `user_name`, `email`, `phone_number`, `password`, `display_name`, `status`) VALUES
+(6, 'NN', 'BBBB', 'NN.BBBB', 'nb@f.e', '04837922', '81dc9bdb52d04dc20036dbd8313ed055', 'NN BBBB', 'Working'),
+(7, 'ghbgf', 'gfbgf', 'ghbgf.gfbgf', 'fbfb', 'fbfbd', '81dc9bdb52d04dc20036dbd8313ed055', 'ghbgf gfbgf', 'Working');
 
 -- --------------------------------------------------------
 
@@ -320,7 +328,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `journalists`
 --
 ALTER TABLE `journalists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `matches`
