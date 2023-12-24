@@ -206,6 +206,14 @@ section.main-section .dashboard .form-row form p{
     flex-direction: column;
     font-size: 18px;
 }
+section.main-section .dashboard .form-row h2 {
+    color: #02ca4e;
+}
+section.main-section .dashboard .form-row .forms {
+    display: flex;
+    flex-direction: row;
+}
+
 section.main-section .dashboard .form-row form p input,
 section.main-section .dashboard .form-row form p textarea,
 section.main-section .dashboard .form-row form p select {

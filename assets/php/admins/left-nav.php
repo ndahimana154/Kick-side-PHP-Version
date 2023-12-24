@@ -19,7 +19,13 @@
             </h2>
             <ul>
                 <li>
-                    <a href="./journalists.php">
+                    <a href="./new-journalist.php">
+                        <i class="fa fa-plus-circle"></i>
+                        New Journalist
+                    </a>
+                </li>
+                <li>
+                    <a href="./journalists-list.php">
                         <i class="fa fa-user-friends"></i>
                         Journalists list
                     </a>
@@ -32,17 +38,18 @@
             </h2>
             <ul>
                 <li>
-                    <a href="./signout.php">
-                        <i class="fa fa-sign-out-alt"></i>
-                        Signout
-                    </a>
-                </li>
-                <li>
                     <a href="./settings.php">
                         <i class="fa fa-cogs"></i>
                         Settings
                     </a>
                 </li>
+                <li>
+                    <a href="./signout.php">
+                        <i class="fa fa-sign-out-alt"></i>
+                        Signout
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
