@@ -37,12 +37,7 @@
                         Personnel list
                     </a>
                 </li>
-                <li>
-                    <a href="./arenas-list.php">
-                        <i class="fa fa-list"></i>
-                        Arenas List
-                    </a>
-                </li>
+              
             </ul>
         </div>
         <div class="nav">

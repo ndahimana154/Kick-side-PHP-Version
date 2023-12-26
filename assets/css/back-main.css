@@ -264,10 +264,14 @@ section.main-section .dashboard .form-row table tbody td  a {
     background: transparent;
     border: 0;
     outline: 0;
+    color: #fff;
 }
 section.main-section .dashboard .form-row table tbody td .edit i {
     color: #02ca4e;
 }
+section.main-section .dashboard .form-row table tbody td .delete i {
+    color: #e22e2e;
+} 
 section.main-section .dashboard .form-row table tbody td .image {
     width: 30px;
 }
