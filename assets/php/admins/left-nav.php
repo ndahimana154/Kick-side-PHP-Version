@@ -73,6 +73,18 @@
                         Leagues List
                     </a>
                 </li>
+                <li>
+                    <a href="./new-league-year.php">
+                        <i class="fa fa-plus-circle"></i>
+                        New League Year 
+                    </a>
+                </li>
+                <li>
+                    <a href="./league-years-list.php">
+                        <i class="fa fa-list"></i>
+                        League Years List
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="nav">

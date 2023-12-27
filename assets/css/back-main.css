@@ -259,6 +259,7 @@ section.main-section .dashboard .form-row table thead th {
 }
 section.main-section .dashboard .form-row table tbody td {
     color: #dadada;
+    padding: 5px;
 }
 section.main-section .dashboard .form-row table tbody td  a {
     background: transparent;
