@@ -51,7 +51,7 @@
                 </li>
                 <li>
                     <a href="./new-arena.php">
-                        <i class="fa fa-list"></i>
+                        <i class="fa fa-plus-circle"></i>
                         New arena 
                     </a>
                 </li>
@@ -59,6 +59,18 @@
                     <a href="./arenas-list.php">
                         <i class="fa fa-list"></i>
                         Arenas List
+                    </a>
+                </li>
+                <li>
+                    <a href="./new-league.php">
+                        <i class="fa fa-plus-circle"></i>
+                        New League
+                    </a>
+                </li>
+                <li>
+                    <a href="./leagues-list.php">
+                        <i class="fa fa-list"></i>
+                        Leagues List
                     </a>
                 </li>
             </ul>

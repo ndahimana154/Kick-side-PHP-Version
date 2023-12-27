@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 24, 2023 at 02:50 PM
+-- Generation Time: Dec 26, 2023 at 10:14 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -48,6 +48,32 @@ INSERT INTO `admins` (`id`, `user_name`, `email`, `phone`, `password`, `type`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `arenas`
+--
+
+CREATE TABLE `arenas` (
+  `arena_id` int(11) NOT NULL,
+  `arena_name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `country` int(11) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `capacity` int(11) NOT NULL,
+  `est_date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `arenas`
+--
+
+INSERT INTO `arenas` (`arena_id`, `arena_name`, `description`, `country`, `city`, `capacity`, `est_date`) VALUES
+(1, 'Stamford Bridge', '', 2, 'London', 50000, ''),
+(2, 'Emirates Stadium', 'Stadium for Arsenal', 2, 'London', 38000, '1903-12-24'),
+(3, 'Etihad Stadium', '', 2, 'Manchester', 30000, ''),
+(4, 'Kigali Pele Stadium', 'THe stadium formely names Petit Stade Nyamirambo, but after the Pele death it was Re Innovated and named Kigali Pele Stadium', 1, 'Kigali', 30000, '2003-01-26');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -65,6 +91,28 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `category_name`, `category_description`, `genre`) VALUES
 (1, 'Exclusive', 'News articles that are exclusive', 1),
 (2, 'NBA', 'News for NBA', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `countries`
+--
+
+CREATE TABLE `countries` (
+  `country_id` int(11) NOT NULL,
+  `country_name` varchar(255) NOT NULL,
+  `country_description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`country_id`, `country_name`, `country_description`) VALUES
+(1, 'Rwanda', ''),
+(2, 'England', ''),
+(3, 'Spain', ''),
+(4, 'France', '');
 
 -- --------------------------------------------------------
 
@@ -111,6 +159,29 @@ CREATE TABLE `journalists` (
 INSERT INTO `journalists` (`id`, `first_name`, `last_name`, `user_name`, `email`, `phone_number`, `password`, `display_name`, `status`) VALUES
 (6, 'NN', 'BBBB', 'NN.BBBB', 'nb@f.e', '04837922', '81dc9bdb52d04dc20036dbd8313ed055', 'NN BBBB', 'Working'),
 (7, 'ghbgf', 'gfbgf', 'ghbgf.gfbgf', 'fbfb', 'fbfbd', '81dc9bdb52d04dc20036dbd8313ed055', 'ghbgf gfbgf', 'Working');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `league_competitions`
+--
+
+CREATE TABLE `league_competitions` (
+  `l_c_id` int(11) NOT NULL,
+  `league_genre` int(11) NOT NULL,
+  `competition_name` varchar(255) NOT NULL,
+  `league_description` text NOT NULL,
+  `league_country` int(11) NOT NULL,
+  `teams_number` int(11) NOT NULL,
+  `league_est` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `league_competitions`
+--
+
+INSERT INTO `league_competitions` (`l_c_id`, `league_genre`, `competition_name`, `league_description`, `league_country`, `teams_number`, `league_est`) VALUES
+(1, 1, 'English Premiere League', 'EPL', 2, 20, '1907-06-26');
 
 -- --------------------------------------------------------
 
@@ -193,10 +264,23 @@ CREATE TABLE `season_years` (
 CREATE TABLE `teams` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `abbreviation` varchar(255) NOT NULL,
   `logo` text NOT NULL,
-  `country` varchar(255) NOT NULL
+  `country` int(11) NOT NULL,
+  `genre` int(11) NOT NULL,
+  `arena` int(11) NOT NULL,
+  `est` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `teams`
+--
+
+INSERT INTO `teams` (`id`, `name`, `description`, `abbreviation`, `logo`, `country`, `genre`, `arena`, `est`) VALUES
+(1, 'Arsenal FC', 'They Shoot', 'The Gunners', 'England - Arsenal FC.png', 2, 1, 2, '2020-01-24'),
+(2, 'Chelsea', 'The City is Blue', 'The Blues', 'England - Chelsea.png', 2, 1, 1, '1905-01-01'),
+(3, 'Manchester City', 'They are the Citizens', 'Citizens', 'England - Manchester City.png', 2, 1, 3, '1894-01-01');
 
 -- --------------------------------------------------------
 
@@ -233,11 +317,24 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `arenas`
+--
+ALTER TABLE `arenas`
+  ADD PRIMARY KEY (`arena_id`),
+  ADD KEY `wededeewe` (`country`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fgvdvdvfdfvbfggtbtrtg` (`genre`);
+
+--
+-- Indexes for table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`country_id`);
 
 --
 -- Indexes for table `genres`
@@ -250,6 +347,12 @@ ALTER TABLE `genres`
 --
 ALTER TABLE `journalists`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `league_competitions`
+--
+ALTER TABLE `league_competitions`
+  ADD PRIMARY KEY (`l_c_id`);
 
 --
 -- Indexes for table `matches`
@@ -293,7 +396,10 @@ ALTER TABLE `season_years`
 -- Indexes for table `teams`
 --
 ALTER TABLE `teams`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fffgdfgfdgfgre` (`country`),
+  ADD KEY `efedffewfefew` (`genre`),
+  ADD KEY `dfgrgrrerger` (`arena`);
 
 --
 -- Indexes for table `tournaments`
@@ -313,10 +419,22 @@ ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `arenas`
+--
+ALTER TABLE `arenas`
+  MODIFY `arena_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `genres`
@@ -329,6 +447,12 @@ ALTER TABLE `genres`
 --
 ALTER TABLE `journalists`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `league_competitions`
+--
+ALTER TABLE `league_competitions`
+  MODIFY `l_c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `matches`
@@ -364,7 +488,7 @@ ALTER TABLE `season_years`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tournaments`
@@ -375,6 +499,12 @@ ALTER TABLE `tournaments`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `arenas`
+--
+ALTER TABLE `arenas`
+  ADD CONSTRAINT `wededeewe` FOREIGN KEY (`country`) REFERENCES `countries` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `categories`
@@ -409,6 +539,14 @@ ALTER TABLE `news_articles_categories`
 --
 ALTER TABLE `news_articles_views`
   ADD CONSTRAINT `dcnservoinveon` FOREIGN KEY (`article`) REFERENCES `news_articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `teams`
+--
+ALTER TABLE `teams`
+  ADD CONSTRAINT `dfgrgrrerger` FOREIGN KEY (`arena`) REFERENCES `arenas` (`arena_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `efedffewfefew` FOREIGN KEY (`genre`) REFERENCES `genres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fffgdfgfdgfgre` FOREIGN KEY (`country`) REFERENCES `countries` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tournaments`
