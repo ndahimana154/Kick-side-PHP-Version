@@ -43,7 +43,7 @@ include("../assets/php/admins/session_checker.php");
                                     $totalteams = mysqli_real_escape_string($server, $_POST['lytnumber']);
                                     $status = mysqli_real_escape_string($server, $_POST['lystatus']);
 
-                                    $statuses_array = ['Not Started','Progressing','Postponed','Awarded'];
+                                    $statuses_array = ['Not Started', 'Progressing', 'Postponed', 'Awarded'];
 
                                     // Check if the league_competition exists and get their IDs
 
@@ -56,15 +56,14 @@ include("../assets/php/admins/session_checker.php");
                                         <div class="errorMsg">
                                             League is Invalid.
                                         </div>
-                                        <?php
+                                    <?php
                                     } elseif (!in_array($status, $statuses_array)) {
-                                        ?>
+                                    ?>
                                         <div class="errorMsg">
                                             Invalid Status.
                                         </div>
                                         <?php
-                                    }
-                                     else {
+                                    } else {
                                         $dataleague = mysqli_fetch_array($checkleague);
 
                                         $league_id = $dataleague['l_c_id'];
@@ -72,7 +71,7 @@ include("../assets/php/admins/session_checker.php");
                                         if ($startingdate > $proposedenddate) {
                                         ?>
                                             <div class="errorMsg">
-                                                Starting date can't be greater than end date 
+                                                Starting date can't be greater than end date
                                             </div>
                                             <?php
                                         } else {
@@ -85,7 +84,7 @@ include("../assets/php/admins/session_checker.php");
                                             if (!$new) {
                                             ?>
                                                 <div class="errorMsg">
-                                                    Creating League Year  failed.
+                                                    Creating League Year failed.
                                                 </div>
                                             <?php
                                             } else {

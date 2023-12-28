@@ -36,23 +36,22 @@ include("../assets/php/admins/session_checker.php");
                                     <tr>
                                         <th>#</th>
                                         <th>
-                                            Starting date 
+                                            Starting date
                                         </th>
                                         <th>
                                             League name
                                         </th>
                                         <th>
-                                            Ending date 
+                                            Ending date
                                         </th>
-                                       
                                         <th>
-                                            Total teams 
+                                            Total teams
                                         </th>
                                         <th>
                                             Total matchdays
                                         </th>
                                         <th>
-                                            Status 
+                                            Status
                                         </th>
                                         <th>
                                             Actions
@@ -81,7 +80,7 @@ include("../assets/php/admins/session_checker.php");
                                     } else {
                                         $counter = 1;
                                         while ($data_all_leagues = mysqli_fetch_array($get_all_league_years)) {
-                                            $league_id= $data_all_leagues['l_c_id'];
+                                            $league_id = $data_all_leagues['l_c_id'];
                                         ?>
                                             <tr>
                                                 <td>
@@ -96,18 +95,18 @@ include("../assets/php/admins/session_checker.php");
                                                 <td>
                                                     <?php echo $data_all_leagues['end_date']; ?>
                                                 </td>
-                                                
+
                                                 <td>
-                                                    <?php echo $data_all_leagues['total_teams']." Teams"; ?>
+                                                    <?php echo $data_all_leagues['total_teams'] . " Teams"; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $data_all_leagues['total_match_days']." Days"; ?>
+                                                    <?php echo $data_all_leagues['total_match_days'] . " Days"; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $data_all_leagues['status']; ?>
                                                 </td>
                                                 <td>
-                                                   
+
                                                 </td>
                                             </tr>
                                     <?php
