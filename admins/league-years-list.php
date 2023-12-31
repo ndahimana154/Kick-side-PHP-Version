@@ -106,7 +106,18 @@ include("../assets/php/admins/session_checker.php");
                                                     <?php echo $data_all_leagues['status']; ?>
                                                 </td>
                                                 <td>
-
+                                                    <a href="league-years-assign-teams.php?l_y=<?php echo $data_all_leagues['l_y_id']; ?>" title="Add Teams to league years">
+                                                        <i class="fa fa-plus-circle"></i> add teams
+                                                    </a>
+                                                    <a href="league-year-teams-lists.php?l_y=<?php echo $data_all_leagues['l_y_id']; ?>" title="View league Year teams">
+                                                        <i class="fa fa-list"></i> teams list
+                                                    </a>
+                                                    <a href="league-year-new-match.php?l_y=<?php echo $data_all_leagues['l_y_id']; ?>" title="Create a new match in the league">
+                                                        <i class="fa fa-plus-square"></i> New match
+                                                    </a>
+                                                    <a href="league-year-match-list.php?l_y=<?php echo $data_all_leagues['l_y_id']; ?>" title="View the League matches list">
+                                                        <i class="fa fa-indent"></i> Match list
+                                                    </a>
                                                 </td>
                                             </tr>
                                     <?php

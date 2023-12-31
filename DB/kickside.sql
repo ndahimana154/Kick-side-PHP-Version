@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 26, 2023 at 10:14 AM
+-- Generation Time: Dec 28, 2023 at 07:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -181,22 +181,79 @@ CREATE TABLE `league_competitions` (
 --
 
 INSERT INTO `league_competitions` (`l_c_id`, `league_genre`, `competition_name`, `league_description`, `league_country`, `teams_number`, `league_est`) VALUES
-(1, 1, 'English Premiere League', 'EPL', 2, 20, '1907-06-26');
+(1, 1, 'English Premiere League', 'EPL', 2, 20, '1907-06-26'),
+(2, 1, 'Ligue 1', 'First division League in France Football', 4, 20, '1990-12-27'),
+(3, 1, 'Laliga', 'Laliga the first division from Across', 3, 20, '1900-01-01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matches`
+-- Table structure for table `league_matches`
 --
 
-CREATE TABLE `matches` (
-  `match_id` int(11) NOT NULL,
-  `tournament` int(11) NOT NULL,
+CREATE TABLE `league_matches` (
+  `l_m_id` int(11) NOT NULL,
+  `league_year` int(11) NOT NULL,
   `home_team` int(11) NOT NULL,
   `away_team` int(11) NOT NULL,
-  `match_time` varchar(255) NOT NULL,
-  `match_progress` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `proposed_time` varchar(255) NOT NULL,
+  `match_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `league_matches`
+--
+
+INSERT INTO `league_matches` (`l_m_id`, `league_year`, `home_team`, `away_team`, `proposed_time`, `match_status`) VALUES
+(3, 1, 1, 2, '2023-12-15 01:41', 'Waiting'),
+(5, 1, 2, 1, '2023-01-31 19:10', 'Waiting'),
+(6, 1, 3, 1, '2023-12-07 ', 'Waiting'),
+(7, 1, 2, 3, '2023-12-16 19:10', 'Waiting');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `league_years`
+--
+
+CREATE TABLE `league_years` (
+  `l_y_id` int(11) NOT NULL,
+  `league_id` int(11) NOT NULL,
+  `starting_date` varchar(255) NOT NULL,
+  `end_date` varchar(255) NOT NULL,
+  `total_teams` int(11) NOT NULL,
+  `total_match_days` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `league_years`
+--
+
+INSERT INTO `league_years` (`l_y_id`, `league_id`, `starting_date`, `end_date`, `total_teams`, `total_match_days`, `status`) VALUES
+(1, 1, '2023-09-26 00:00:00', '2024-05-06 00:00:00', 20, 38, 'Progressing'),
+(2, 3, '2018-08-27', '2019-05-27', 20, 38, 'Awarded');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `league_year_teams`
+--
+
+CREATE TABLE `league_year_teams` (
+  `l_y_t_id` int(11) NOT NULL,
+  `league_year` int(11) NOT NULL,
+  `team` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `league_year_teams`
+--
+
+INSERT INTO `league_year_teams` (`l_y_t_id`, `league_year`, `team`) VALUES
+(5, 1, 3),
+(6, 1, 2),
+(7, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -239,20 +296,6 @@ CREATE TABLE `news_articles_views` (
   `article` int(11) NOT NULL,
   `view_count` int(11) NOT NULL,
   `time` int(11) NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `season_years`
---
-
-CREATE TABLE `season_years` (
-  `id` int(11) NOT NULL,
-  `start` varchar(255) NOT NULL,
-  `end` varchar(255) NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `rank` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -352,16 +395,33 @@ ALTER TABLE `journalists`
 -- Indexes for table `league_competitions`
 --
 ALTER TABLE `league_competitions`
-  ADD PRIMARY KEY (`l_c_id`);
+  ADD PRIMARY KEY (`l_c_id`),
+  ADD KEY `erfrfeg` (`league_genre`),
+  ADD KEY `gtgggegrg` (`league_country`);
 
 --
--- Indexes for table `matches`
+-- Indexes for table `league_matches`
 --
-ALTER TABLE `matches`
-  ADD PRIMARY KEY (`match_id`),
-  ADD KEY `edfehfheuiwehuich` (`away_team`),
-  ADD KEY `dcuihwqeiuhweiu` (`home_team`),
-  ADD KEY `weuiwehuiheiu` (`tournament`);
+ALTER TABLE `league_matches`
+  ADD PRIMARY KEY (`l_m_id`),
+  ADD KEY `rgrg` (`away_team`),
+  ADD KEY `regfrggrgg` (`home_team`),
+  ADD KEY `ervvdrffdvdfv` (`league_year`);
+
+--
+-- Indexes for table `league_years`
+--
+ALTER TABLE `league_years`
+  ADD PRIMARY KEY (`l_y_id`),
+  ADD KEY `ewfewfefff` (`league_id`);
+
+--
+-- Indexes for table `league_year_teams`
+--
+ALTER TABLE `league_year_teams`
+  ADD PRIMARY KEY (`l_y_t_id`),
+  ADD KEY `dsgfdggregreger` (`league_year`),
+  ADD KEY `rgregergergregr` (`team`);
 
 --
 -- Indexes for table `news_articles`
@@ -385,12 +445,6 @@ ALTER TABLE `news_articles_categories`
 ALTER TABLE `news_articles_views`
   ADD PRIMARY KEY (`id`),
   ADD KEY `dcnservoinveon` (`article`);
-
---
--- Indexes for table `season_years`
---
-ALTER TABLE `season_years`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `teams`
@@ -452,13 +506,25 @@ ALTER TABLE `journalists`
 -- AUTO_INCREMENT for table `league_competitions`
 --
 ALTER TABLE `league_competitions`
-  MODIFY `l_c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `l_c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `matches`
+-- AUTO_INCREMENT for table `league_matches`
 --
-ALTER TABLE `matches`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `league_matches`
+  MODIFY `l_m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `league_years`
+--
+ALTER TABLE `league_years`
+  MODIFY `l_y_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `league_year_teams`
+--
+ALTER TABLE `league_year_teams`
+  MODIFY `l_y_t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `news_articles`
@@ -477,12 +543,6 @@ ALTER TABLE `news_articles_categories`
 --
 ALTER TABLE `news_articles_views`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
-
---
--- AUTO_INCREMENT for table `season_years`
---
-ALTER TABLE `season_years`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -513,12 +573,32 @@ ALTER TABLE `categories`
   ADD CONSTRAINT `fgvdvdvfdfvbfggtbtrtg` FOREIGN KEY (`genre`) REFERENCES `genres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `matches`
+-- Constraints for table `league_competitions`
 --
-ALTER TABLE `matches`
-  ADD CONSTRAINT `dcuihwqeiuhweiu` FOREIGN KEY (`home_team`) REFERENCES `teams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `edfehfheuiwehuich` FOREIGN KEY (`away_team`) REFERENCES `teams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `weuiwehuiheiu` FOREIGN KEY (`tournament`) REFERENCES `tournaments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `league_competitions`
+  ADD CONSTRAINT `erfrfeg` FOREIGN KEY (`league_genre`) REFERENCES `genres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gtgggegrg` FOREIGN KEY (`league_country`) REFERENCES `countries` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `league_matches`
+--
+ALTER TABLE `league_matches`
+  ADD CONSTRAINT `ervvdrffdvdfv` FOREIGN KEY (`league_year`) REFERENCES `league_years` (`l_y_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `regfrggrgg` FOREIGN KEY (`home_team`) REFERENCES `teams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rgrg` FOREIGN KEY (`away_team`) REFERENCES `teams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `league_years`
+--
+ALTER TABLE `league_years`
+  ADD CONSTRAINT `ewfewfefff` FOREIGN KEY (`league_id`) REFERENCES `league_competitions` (`l_c_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `league_year_teams`
+--
+ALTER TABLE `league_year_teams`
+  ADD CONSTRAINT `dsgfdggregreger` FOREIGN KEY (`league_year`) REFERENCES `league_years` (`l_y_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rgregergergregr` FOREIGN KEY (`team`) REFERENCES `teams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `news_articles`
