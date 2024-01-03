@@ -98,6 +98,9 @@ include("../assets/php/journalists/session_mgt.php");
                                                         <a href="edit-article.php?a=<?php echo $articleId; ?>" class="edit">
                                                             <i class="fa fa-edit"></i>
                                                         </a>
+                                                        <a href="article-mark-favorite.php">
+                                                            <i class="fa fa-heart"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                                 <?php

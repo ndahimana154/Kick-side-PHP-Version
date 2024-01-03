@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 28, 2023 at 07:11 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Host: 127.0.0.1
+-- Generation Time: Jan 03, 2024 at 03:42 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,7 +90,8 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `category_name`, `category_description`, `genre`) VALUES
 (1, 'Exclusive', 'News articles that are exclusive', 1),
-(2, 'NBA', 'News for NBA', 2);
+(2, 'NBA', 'News for NBA', 2),
+(3, 'Breaking News', '', 1);
 
 -- --------------------------------------------------------
 
@@ -159,6 +160,19 @@ CREATE TABLE `journalists` (
 INSERT INTO `journalists` (`id`, `first_name`, `last_name`, `user_name`, `email`, `phone_number`, `password`, `display_name`, `status`) VALUES
 (6, 'NN', 'BBBB', 'NN.BBBB', 'nb@f.e', '04837922', '81dc9bdb52d04dc20036dbd8313ed055', 'NN BBBB', 'Working'),
 (7, 'ghbgf', 'gfbgf', 'ghbgf.gfbgf', 'fbfb', 'fbfbd', '81dc9bdb52d04dc20036dbd8313ed055', 'ghbgf gfbgf', 'Working');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `journalists_favorites`
+--
+
+CREATE TABLE `journalists_favorites` (
+  `fav_id` int(11) NOT NULL,
+  `journalist` int(11) NOT NULL,
+  `article` int(11) NOT NULL,
+  `date_of_fav` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -272,6 +286,16 @@ CREATE TABLE `news_articles` (
   `article_publish_time` text NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `news_articles`
+--
+
+INSERT INTO `news_articles` (`article_id`, `article_title`, `article_overview`, `article_poster`, `article_full_details`, `article_author`, `article_genre`, `article_publish_time`) VALUES
+(4, '54\'s Cristiano Ronaldo Jersey Give Away', 'Huge story to say about', 'Screenshot (1).png', 'Huge story to say about', 6, 1, '2024-01-02 10:35:25'),
+(5, 'Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 'Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 'pexels-lil-artsy-1213447.jpg', 'Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 6, 1, '2024-01-02 20:38:01'),
+(6, 'Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano', ' Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. ', 'pexels-lukas-1420709.jpg', 'Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\n Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\n\r\nConfirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\nConfirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.', 6, 1, '2024-01-02 20:40:17'),
+(7, 'Homee boy comming back home', 'WTF? is this?', 'pexels-ahmed-adly-1270184.jpg', 'I was thinking it\'s not real.', 6, 1, '2024-01-02 21:11:24');
+
 -- --------------------------------------------------------
 
 --
@@ -285,6 +309,15 @@ CREATE TABLE `news_articles_categories` (
   `date_of_exclusiveness` varchar(255) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `news_articles_categories`
+--
+
+INSERT INTO `news_articles_categories` (`id`, `article`, `category`, `date_of_exclusiveness`) VALUES
+(3, 4, 3, '2024-01-02 20:49:44'),
+(4, 6, 3, '2024-01-02 20:57:13'),
+(6, 5, 3, '2024-01-02 20:58:06');
+
 -- --------------------------------------------------------
 
 --
@@ -297,6 +330,29 @@ CREATE TABLE `news_articles_views` (
   `view_count` int(11) NOT NULL,
   `time` int(11) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `news_articles_views`
+--
+
+INSERT INTO `news_articles_views` (`id`, `article`, `view_count`, `time`) VALUES
+(124, 7, 1, 2147483647),
+(125, 5, 1, 2147483647),
+(126, 5, 1, 2147483647),
+(127, 5, 1, 2147483647),
+(128, 5, 1, 2147483647),
+(129, 5, 1, 2147483647),
+(130, 5, 1, 2147483647),
+(131, 5, 1, 2147483647),
+(132, 5, 1, 2147483647),
+(133, 5, 1, 2147483647),
+(134, 5, 1, 2147483647),
+(135, 7, 1, 2147483647),
+(136, 5, 1, 2147483647),
+(137, 5, 1, 2147483647),
+(138, 5, 1, 2147483647),
+(139, 7, 1, 2147483647),
+(140, 7, 1, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -392,6 +448,14 @@ ALTER TABLE `journalists`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `journalists_favorites`
+--
+ALTER TABLE `journalists_favorites`
+  ADD PRIMARY KEY (`fav_id`),
+  ADD KEY `fdvgfggdfgfg` (`article`),
+  ADD KEY `fdgfgfgfvfv` (`journalist`);
+
+--
 -- Indexes for table `league_competitions`
 --
 ALTER TABLE `league_competitions`
@@ -482,7 +546,7 @@ ALTER TABLE `arenas`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -501,6 +565,12 @@ ALTER TABLE `genres`
 --
 ALTER TABLE `journalists`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `journalists_favorites`
+--
+ALTER TABLE `journalists_favorites`
+  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `league_competitions`
@@ -530,19 +600,19 @@ ALTER TABLE `league_year_teams`
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `news_articles_categories`
 --
 ALTER TABLE `news_articles_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `news_articles_views`
 --
 ALTER TABLE `news_articles_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -571,6 +641,13 @@ ALTER TABLE `arenas`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `fgvdvdvfdfvbfggtbtrtg` FOREIGN KEY (`genre`) REFERENCES `genres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `journalists_favorites`
+--
+ALTER TABLE `journalists_favorites`
+  ADD CONSTRAINT `fdgfgfgfvfv` FOREIGN KEY (`journalist`) REFERENCES `journalists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fdvgfggdfgfg` FOREIGN KEY (`article`) REFERENCES `news_articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `league_competitions`

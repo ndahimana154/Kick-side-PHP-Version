@@ -1,35 +1,33 @@
 <header>
-   <div class="upper">
+   <div class="top">
+      <div class="cont">
          <div class="logo">
-            <a href="../clients/index.php">
-               <img src="../assets/images/KickSide - Logo.png" alt="">
-            </a>
+            <a href="./index.php">KickSide RW</a>
+            <div class="sep"></div>
+            <p>
+               Here to Update.
+            </p>
          </div>
-         <!-- <div class="head-ad1">
-            <h2>
-               ADVERTISE HERE...
-               <span>
-                  Contact: +250788923011
-               </span>
-            </h2>
-         </div> -->
-         <div class="btnz">
-            <a href="../admins/signin.php">
+         <div class="buttons">
+            <a href="" class="signin">
                <i class="fa fa-sign-in"></i>
-               Signin
+               Sign in
             </a>
          </div>
+      </div>
    </div>
    <nav>
-      <button class="menu-toggle">
-         <i class="fa fa-bars"></i>
-      </button>
+      <div class="cont">
          <ul>
             <li>
-               <a href="../clients/index.php">
-                     Home
+               <a href="./index.php">
+                  <i class="fa fa-house"></i>
+                  <span>Home</span>
                </a>
-            </li>     
+            </li>
+          
+
          </ul>
+      </div>
    </nav>
 </header>
