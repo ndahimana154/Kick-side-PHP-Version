@@ -46,7 +46,7 @@ include("../assets/php/journalists/session_mgt.php");
                                         <th>
                                             Article Views
                                         </th>
-                                     
+
                                         <th>
                                             Actions
                                         </th>
@@ -95,12 +95,12 @@ include("../assets/php/journalists/session_mgt.php");
                                                     echo mysqli_num_rows($getViewsCount);
                                                     ?>
                                                 </td>
-                                              
+
                                                 <td>
                                                     <a href="edit-article.php?a=<?php echo $articleId; ?>" class="edit">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <button href="article-mark-favorite.php" class="markFav" value="<?php echo $articleId; ?>" title="Mark Article as favorite">
+                                                    <button class="markFav" value="<?php echo $articleId; ?>" title="Mark Article as favorite">
                                                         <i class="fa fa-heart" style="color: red;"></i>
                                                     </button>
                                                     <a href="../clients/read.php?a=<?php echo $rowArticles['article_id']; ?>" target="_blank" title="Watch the article live.">
@@ -128,8 +128,6 @@ include("../assets/php/journalists/session_mgt.php");
                             </button>
                         </div>
                         <div class="favorite-content">
-                            <div class="failed">dsoi onionion</div>
-                            <div class="success">In idsn indnsss </div>
                         </div>
                     </div>
                 </div>

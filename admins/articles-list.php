@@ -113,6 +113,11 @@ include("../assets/php/admins/session_checker.php");
                                        }
                                        ?>
                                     </td>
+                                    <td>
+                                       <button class="deleteArticle delete" onclick="return confirm('Are you sure to delete this article?')" value="<?php echo $data_All_articles['article_id']; ?>" title="Delete article.">
+                                          <i class="fa fa-trash"></i>
+                                    </button>
+                                    </td>
                                  </tr>
                            <?php
                               }
@@ -123,9 +128,25 @@ include("../assets/php/admins/session_checker.php");
                   </div>
                </div>
             </div>
+            <div class="modal" id="deleteArticle-modal">
+                    <div class="deleteArticle-cont">
+                        <div class="title">
+                            <h4>
+                                Delete article.
+                            </h4>
+                            <button id="closeDeleArticleModal" title="Close">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </div>
+                        <div class="deleteArticle-Contents">
+                        </div>
+                    </div>
+                </div>
          </div>
       </section>
    </main>
+   <script src="../assets/js/jQuery.min.js"></script>
+   <script src="../assets/js/adminDeleteArticle.js"></script>
    <script src="../assets/js/journalistsToggleNav.js"></script>
 
 </body>
