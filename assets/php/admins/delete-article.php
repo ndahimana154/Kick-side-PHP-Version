@@ -11,23 +11,22 @@ if (isset($_POST['article'])) {
         article_id = '$articleId'
     ");
     if (mysqli_num_rows($checkExist) < 1) {
-?>
+        ?>
         <div class="errorMsg">
             The article doesn't even exist.
         </div>
-<?php
+        <?php
     } else {
         $delete = mysqli_query($server, "DELETE from news_articles WHERE
             article_id = '$articleId'
         ");
-        if(!$delete) {
+        if (!$delete) {
             ?>
             <div class="errorMsg">
-                Deleting the article failed. 
+                Deleting the article failed.
             </div>
             <?php
-        }
-        else {
+        } else {
             ?>
             <div class="successMsg">
                 Article is deleted succesfully.

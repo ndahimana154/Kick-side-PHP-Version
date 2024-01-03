@@ -40,8 +40,14 @@
             <ul>
                 <li>
                     <a href="./new-history.php">
-                        <i class="fa fa-plus-crcle"></i>
+                        <i class="fa fa-plus-circle"></i>
                         New History
+                    </a>
+                </li>
+                <li>
+                    <a href="./history-list.php">
+                        <i class="fa fa-list"></i>
+                        History List
                     </a>
                 </li>
             </ul>

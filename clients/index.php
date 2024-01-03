@@ -8,7 +8,9 @@ include('../assets/php/global/server.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/images/favicon.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/front-main.css">
     <title>KickSide RW - Home</title>
 </head>
@@ -25,8 +27,8 @@ include('../assets/php/global/server.php');
                 $getlast = mysqli_query($server, "SELECT * from news_articles,genres WHERE news_articles.article_genre  = genres.id ORDER BY article_publish_time DESC ");
                 if (mysqli_num_rows($getlast) >= 1) {
                     $datalast = mysqli_fetch_array($getlast);
-                    $lastid  = $datalast['article_id'];
-                ?>
+                    $lastid = $datalast['article_id'];
+                    ?>
                     <div class="box">
                         <a href="read.php?a=<?php echo $datalast['article_id'] ?>">
                             <div class="img">
@@ -49,7 +51,7 @@ include('../assets/php/global/server.php');
                             </div>
                         </a>
                     </div>
-                <?php
+                    <?php
                 }
                 ?>
             </div>
@@ -74,11 +76,12 @@ include('../assets/php/global/server.php');
                             ");
                             if (mysqli_num_rows($getbreaking) > 0) {
                                 while ($databreaking = mysqli_fetch_array($getbreaking)) {
-                            ?>
+                                    ?>
                                     <div class="b-box">
                                         <a href="read.php?a=<?php echo $databreaking['article_id']; ?>">
                                             <div class="img">
-                                                <img src="../assets/articles/posters/<?php echo $databreaking['article_poster']; ?>" alt="">
+                                                <img src="../assets/articles/posters/<?php echo $databreaking['article_poster']; ?>"
+                                                    alt="">
                                             </div>
                                             <div class="info">
                                                 <h3>
@@ -91,11 +94,51 @@ include('../assets/php/global/server.php');
                                             </div>
                                         </a>
                                     </div>
-                            <?php
+                                    <?php
                                 }
                             }
                             ?>
 
+                        </div>
+                    </div>
+                    <div class="bn-cont">
+                        <h2>
+                            Transfer Rumors
+                        </h2>
+                        <div class="b-row">
+                            <?php
+                            $getbreaking = mysqli_query($server, "SELECT * from news_articles,categories,news_articles_categories,journalists WHERE news_articles.article_id = news_articles_categories.article
+                                AND news_articles_categories.category  = categories.id
+                                AND categories.category_name = 'Transfer Rumors'
+                                AND news_articles.article_id != '$lastid'
+                                AND news_articles.article_author = journalists.id
+                                ORDER BY date_of_exclusiveness DESC
+                                LIMIT 10
+                            ");
+                            if (mysqli_num_rows($getbreaking) > 0) {
+                                while ($databreaking = mysqli_fetch_array($getbreaking)) {
+                                    ?>
+                                    <div class="b-box">
+                                        <a href="read.php?a=<?php echo $databreaking['article_id']; ?>">
+                                            <div class="img">
+                                                <img src="../assets/articles/posters/<?php echo $databreaking['article_poster']; ?>"
+                                                    alt="">
+                                            </div>
+                                            <div class="info">
+                                                <h3>
+                                                    <?php echo $databreaking['article_title']; ?>
+                                                </h3>
+                                                <p>
+                                                    <i class="fa fa-user"></i>
+                                                    <?php echo $databreaking['first_name'] . " " . $databreaking['last_name']; ?>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -104,59 +147,15 @@ include('../assets/php/global/server.php');
                         <h2>
                             What's in History?
                         </h2>
-                        <div class="form">
-                            <p>
-                                <label for="Month">
-                                    Month
-                                </label>
-                                <input type="text" id="dateInput" name="dateInput" pattern="^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])$" required>
-                                <select name="" id="">
-                                    <option value="">January</option>
-                                    <option value="">February</option>
-                                    <option value="">March</option>
-                                    <option value="">April</option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-                            </p>
-                            <p>
-                                <label for="Day">
-                                    Day
-                                </label>
-                                <select name="" id="">
-                                    <?php
-                                    for ($a = 1; $a < 32; $a++) {
-                                    ?>
-                                        <option value="">
-                                            <?php
-                                            if ($a < 10) {
-                                                echo "0" . $a;
-                                            } else {
-                                                echo $a;
-                                            }
-                                            ?>
-                                        </option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
-                            </p>
-                        </div>
                         <div class="contents-b">
                             <?php
                             $current_date = date('m-d');
                             $get_today = mysqli_query($server, "SELECT * from history_today
                                     WHERE history_date LIKE '%$current_date'
+                                    ORDER BY history_date DESC
                                 ");
                             if (mysqli_num_rows($get_today) < 1) {
-                            ?>
+                                ?>
                                 <div class="onec">
                                     <h4>
                                         No history found.
@@ -165,41 +164,31 @@ include('../assets/php/global/server.php');
                                 <?php
                             } else {
                                 while ($data_today = mysqli_fetch_array($get_today)) {
-                                ?>
+                                    ?>
                                     <div class="onec">
                                         <h4>
                                             <?php echo $data_today['history_title']; ?>
                                         </h4>
                                         <div class="date">
                                             <?php
-                                            // $history_age = new DateTime($data_today['history_date']);
-                                            // $current_date = Date('Y-m-d');
-                                            // echo date_diff($history_age, $current_date);
+                                            $history_date = new DateTime($data_today['history_date']);
+                                            $current_date = new DateTime();
+                                            $interval = $current_date->diff($history_date);
+                                            echo $interval->y . ' years ago';
                                             ?>
                                         </div>
-                                        <!-- <img src="../assets/history/ -->
-                                        <?php
-                                        // echo $data_today['history_image']; 
-                                        ?>
-                                        <!-- " alt="Image for: <?php
-                                                                // echo $data_today['history_title']; 
-                                                                ?>"> -->
+                                        <div class="img">
+                                            <img src="../assets/history/<?php echo $data_today['history_image']; ?>"
+                                                alt="Image for: <?php echo $data_today['history_title']; ?>">
+                                        </div>
+                                        <p>
+                                            <?php echo $data_today['history_description']; ?>
+                                        </p>
                                     </div>
-                            <?php
+                                    <?php
                                 }
                             }
                             ?>
-                            <div class="onec">
-                                <h4>
-                                    Title of the event.
-                                </h4>
-                                <div class="img">
-                                    <img src="../assets/images/KickSide - Logo.png" alt="">
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptatem dolorum voluptates rem quasi labore nobis odit amet id quod vitae, aut quas iusto deleniti. Earum vero dolorem minus similique?
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,7 +205,8 @@ include('../assets/php/global/server.php');
                         <div class="cast-box">
                             <a href="">
                                 <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg" alt="">
+                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
+                                        alt="">
                                 </div>
                                 <div class="info">
                                     <h4>
@@ -231,7 +221,8 @@ include('../assets/php/global/server.php');
                         <div class="cast-box">
                             <a href="">
                                 <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg" alt="">
+                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
+                                        alt="">
                                 </div>
                                 <div class="info">
                                     <h4>
@@ -246,7 +237,8 @@ include('../assets/php/global/server.php');
                         <div class="cast-box">
                             <a href="">
                                 <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg" alt="">
+                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
+                                        alt="">
                                 </div>
                                 <div class="info">
                                     <h4>
@@ -261,7 +253,8 @@ include('../assets/php/global/server.php');
                         <div class="cast-box">
                             <a href="">
                                 <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg" alt="">
+                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
+                                        alt="">
                                 </div>
                                 <div class="info">
                                     <h4>
@@ -299,14 +292,14 @@ include('../assets/php/global/server.php');
                                     ");
                                 if (mysqli_num_rows($getrepofav) > 0) {
                                     $datarepofav = mysqli_fetch_array($getrepofav);
-                        ?>
+                                    ?>
                                     <div class="fav-box">
                                         <div class="reporter">
                                             <!-- <a href=""> -->
-                                                <!-- <img src="../assets/images/man_4140048.png" alt="Image for author"> -->
-                                                <p>
-                                                    <?php echo $datarepofav['first_name'] . " " . $datarepofav['last_name']; ?>
-                                                </p>
+                                            <!-- <img src="../assets/images/man_4140048.png" alt="Image for author"> -->
+                                            <p>
+                                                <?php echo $datarepofav['first_name'] . " " . $datarepofav['last_name']; ?>
+                                            </p>
                                             <!-- </a> -->
                                         </div>
                                         <div class="article">
@@ -319,7 +312,7 @@ include('../assets/php/global/server.php');
                                             </a>
                                         </div>
                                     </div>
-                        <?php
+                                    <?php
                                 }
                             }
                         }

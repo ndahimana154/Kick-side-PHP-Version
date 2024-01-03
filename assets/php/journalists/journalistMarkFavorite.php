@@ -8,17 +8,17 @@ if (isset($_POST['article'])) {
             VALUES(null,'$acting_jou_id','$articleId',CURRENT_TIMESTAMP)
         ");
     if (!$markFavorite) {
-?>
+        ?>
         <div class="failed">
             Failed to save the favorite. Don't worry it's our issue and you may report it.
         </div>
-    <?php
+        <?php
     } else {
-    ?>
+        ?>
         <div class="success">
             Saving the favorite article succed.
         </div>
-<?php
+        <?php
     }
 }
 ?>

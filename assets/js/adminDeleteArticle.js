@@ -4,10 +4,10 @@ $(document).ready(function () {
     $("#deleteArticle-modal").css({ display: "block" });
     $(".deleteArticle-Contents").load(
       "../assets/php/admins/delete-article.php",
-      { "article": articleId }
+      { article: articleId }
     );
     $("#closeDeleArticleModal").on("click", function () {
-        location.reload()
+      location.reload();
       $("#deleteArticle-modal").css({ display: "none" });
     });
   });

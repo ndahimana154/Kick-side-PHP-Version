@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2024 at 09:20 AM
+-- Generation Time: Jan 03, 2024 at 01:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -91,7 +91,8 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `category_name`, `category_description`, `genre`) VALUES
 (1, 'Exclusive', 'News articles that are exclusive', 1),
 (2, 'NBA', 'News for NBA', 2),
-(3, 'Breaking News', '', 1);
+(3, 'Breaking News', '', 1),
+(4, 'Transfer Rumors', '', 1);
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,7 @@ CREATE TABLE `journalists` (
 
 INSERT INTO `journalists` (`id`, `first_name`, `last_name`, `user_name`, `email`, `phone_number`, `password`, `display_name`, `status`) VALUES
 (6, 'NN', 'BBBB', 'NN.BBBB', 'nb@f.e', '04837922', '81dc9bdb52d04dc20036dbd8313ed055', 'NN BBBB', 'Working'),
-(7, 'ghbgf', 'gfbgf', 'ghbgf.gfbgf', 'fbfb', 'fbfbd', '81dc9bdb52d04dc20036dbd8313ed055', 'ghbgf gfbgf', 'Working'),
+(7, 'ghbgf', 'gfbgf', 'ghbgf.gfbgf', 'fbfb@gmail.com', 'fbfbd', '81dc9bdb52d04dc20036dbd8313ed055', 'ghbgf gfbgf', 'Working'),
 (8, 'aa', 'bbbb', 'aa.bbbb', 'aa@gmail.com', '07837232324', '81dc9bdb52d04dc20036dbd8313ed055', 'aa bbbb', 'Working'),
 (9, 'cs', 'as', 'cs.as', 'csas@gmail.com', '03564656565', '81dc9bdb52d04dc20036dbd8313ed055', 'cs as', 'Working');
 
@@ -199,8 +200,17 @@ CREATE TABLE `journalists_favorites` (
   `fav_id` int(11) NOT NULL,
   `journalist` int(11) NOT NULL,
   `article` int(11) NOT NULL,
-  `date_of_fav` varchar(255) NOT NULL
+  `date_of_fav` varchar(255) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `journalists_favorites`
+--
+
+INSERT INTO `journalists_favorites` (`fav_id`, `journalist`, `article`, `date_of_fav`) VALUES
+(1, 6, 6, '2024-01-03'),
+(2, 6, 4, '2024-01-03'),
+(5, 6, 7, '2024-01-03 13:29:16');
 
 -- --------------------------------------------------------
 
@@ -320,16 +330,16 @@ CREATE TABLE `news_articles` (
 
 INSERT INTO `news_articles` (`article_id`, `article_title`, `article_overview`, `article_poster`, `article_full_details`, `article_author`, `article_genre`, `article_publish_time`) VALUES
 (4, '54\'s Cristiano Ronaldo Jersey Give Away', 'Huge story to say about', 'Screenshot (1).png', 'Huge story to say about', 6, 1, '2024-01-02 10:35:25'),
-(5, 'Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 'Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 'pexels-lil-artsy-1213447.jpg', 'Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 6, 1, '2024-01-02 20:38:01'),
 (6, 'Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano', ' Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. ', 'pexels-lukas-1420709.jpg', 'Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\n Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\n\r\nConfirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\nConfirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.', 6, 1, '2024-01-02 20:40:17'),
 (7, 'Homee boy comming back home', 'WTF? is this?', 'pexels-ahmed-adly-1270184.jpg', 'I was thinking it\'s not real.', 6, 1, '2024-01-02 21:11:24'),
 (8, 'gfhtyht nbnttdnt h dhnn  hgdng hg gd gb gbd bf bf fgb vbvbfbgbr rgwbrw . htndh n ndtyh tynynf n. gbgfb', 'rgrthbng rthth t bgfbfg  gb ', 'Podcast_1 copy.jpg', ' gfbfb nd dgb g. yjyuyfnhn . yjr hyny nythdeytn yrqtbttgt g rt h. ethrtehre hrh trhwt ht ytedtyjuju.yjyje jehtrehtrwh.ywr req  rq yrtsy td.', 8, 1, '2024-01-03 07:16:23'),
 (9, 'e diuji nuinvudfn v/vdfv/dfvDFVfdvdfvfdvf.fd df df. d. dc.cx . d vdfvfdvafv fd dfav d cdc.dcsd.csdcds df dfa .   dfveveavvev.', 'sdfdbfgbtrgtrtrtttrhn hrt wtrgb', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' rtrtbw gtr grtgre grevgr', 8, 1, '2024-01-03 07:16:56'),
 (10, 'dfvv voi oi  iocvj io vi i i  . . . g .g fdb sfdf fd df f .f df .f .f fd d .f.fd dfvd df df d df d. d df dffd df fdfd dfv.', 'fdb  v bv v v v ', 'pexels-lukas-1420709.jpg', 'bvcb cv v', 8, 1, '2024-01-03 07:17:52'),
 (11, 'ggffvb b  bbb  g bbtb.yh h trbtr b', 'gfbfg gf gfx hg .jb gbtgb s  .htgbfvf ', 'pexels-ahmed-adly-1270184.jpg', 'dvdv v.uy tyn ,. trt ht', 8, 1, '2024-01-03 07:18:18'),
-(12, 'dfnbth trhh ntbnfg nr btr btrbrt btbrwt . gtrh n nd.', 'h tr hbt hrtgrt ', 'pexels-lukas-1420709.jpg', ' tgttrb b', 8, 1, '2024-01-03 07:26:20'),
 (13, ' rebfb regr gr g ', 'gr ggr gr g grgr ag', 'Podcast_1 copy.jpg', 'gr rrgrgergregrregeerg', 8, 2, '2024-01-03 07:26:40'),
-(14, 'regregrrgr', 'rgrgrgrggrgrgerg', 'Talk Show Podcast Cover Maker with Picture copy.jpg', 'regreggergregrgerg', 8, 1, '2024-01-03 07:31:38');
+(16, 'dscdscdscdc dsvds d  d sdc sd x ', 'dsd   ', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' x xxcxcx x x xc c c cdsfrev f fgrbtybg gh bgfb g  ', 6, 1, '2024-01-03 13:54:49'),
+(17, 'dsvdvdvvddd', 'dsvdv fv fv f', 'pexels-lukas-1420709.jpg', 'cx vadfvvdf', 6, 1, '2024-01-03 14:02:20'),
+(18, 'dvdvfvfd f fd f df', 'dfvfdvfdfvdfvfvf', 'pexels-ahmed-adly-1270184.jpg', 'vdfvavdvfds', 6, 1, '2024-01-03 14:02:37');
 
 -- --------------------------------------------------------
 
@@ -351,14 +361,14 @@ CREATE TABLE `news_articles_categories` (
 INSERT INTO `news_articles_categories` (`id`, `article`, `category`, `date_of_exclusiveness`) VALUES
 (3, 4, 3, '2024-01-02 20:49:44'),
 (4, 6, 3, '2024-01-02 20:57:13'),
-(6, 5, 3, '2024-01-02 20:58:06'),
 (7, 11, 3, '2024-01-03 07:21:45'),
 (8, 10, 3, '2024-01-03 07:26:46'),
 (9, 7, 3, '2024-01-03 07:28:06'),
 (10, 9, 3, '2024-01-03 07:29:05'),
 (11, 8, 3, '2024-01-03 07:31:15'),
 (12, 13, 2, '2024-01-03 07:32:21'),
-(13, 12, 3, '2024-01-03 07:33:59');
+(14, 16, 4, '2024-01-03 14:00:14'),
+(15, 17, 4, '2024-01-03 14:02:52');
 
 -- --------------------------------------------------------
 
@@ -379,23 +389,11 @@ CREATE TABLE `news_articles_views` (
 
 INSERT INTO `news_articles_views` (`id`, `article`, `view_count`, `time`) VALUES
 (124, 7, 1, 2147483647),
-(125, 5, 1, 2147483647),
-(126, 5, 1, 2147483647),
-(127, 5, 1, 2147483647),
-(128, 5, 1, 2147483647),
-(129, 5, 1, 2147483647),
-(130, 5, 1, 2147483647),
-(131, 5, 1, 2147483647),
-(132, 5, 1, 2147483647),
-(133, 5, 1, 2147483647),
-(134, 5, 1, 2147483647),
 (135, 7, 1, 2147483647),
-(136, 5, 1, 2147483647),
-(137, 5, 1, 2147483647),
-(138, 5, 1, 2147483647),
 (139, 7, 1, 2147483647),
 (140, 7, 1, 2147483647),
-(141, 11, 1, 2147483647);
+(141, 11, 1, 2147483647),
+(142, 6, 1, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -596,7 +594,7 @@ ALTER TABLE `arenas`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -626,7 +624,7 @@ ALTER TABLE `journalists`
 -- AUTO_INCREMENT for table `journalists_favorites`
 --
 ALTER TABLE `journalists_favorites`
-  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `league_competitions`
@@ -656,19 +654,19 @@ ALTER TABLE `league_year_teams`
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `news_articles_categories`
 --
 ALTER TABLE `news_articles_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `news_articles_views`
 --
 ALTER TABLE `news_articles_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `teams`
