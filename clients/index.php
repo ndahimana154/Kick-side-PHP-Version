@@ -102,7 +102,7 @@ include('../assets/php/global/server.php');
                 <div class="today">
                     <div class="t-cont">
                         <h2>
-                            Today in History
+                            What's in History?
                         </h2>
                         <div class="form">
                             <p>

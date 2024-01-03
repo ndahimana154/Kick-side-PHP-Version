@@ -62,6 +62,7 @@ include("../assets/php/admins/session_checker.php");
                               WHERE
                               news_articles.article_genre = genres.id
                               AND news_articles.article_author = journalists.id
+                              ORDER BY article_publish_time DESC
                            ");
                            if (mysqli_num_rows($get_All_articles) < 1) {
                               ?>
