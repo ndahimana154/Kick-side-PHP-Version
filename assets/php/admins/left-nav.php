@@ -13,6 +13,7 @@
                 </li>
             </ul>
         </div>
+
         <div class="nav">
             <h2>
                 Journalists
@@ -34,7 +35,20 @@
         </div>
         <div class="nav">
             <h2>
-                Team Personnel  
+                What's in History
+            </h2>
+            <ul>
+                <li>
+                    <a href="./new-history.php">
+                        <i class="fa fa-plus-crcle"></i>
+                        New History
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav">
+            <h2>
+                Team Personnel
             </h2>
             <ul>
                 <li>
@@ -52,7 +66,7 @@
                 <li>
                     <a href="./new-arena.php">
                         <i class="fa fa-plus-circle"></i>
-                        New arena 
+                        New arena
                     </a>
                 </li>
                 <li>
@@ -76,7 +90,7 @@
                 <li>
                     <a href="./new-league-year.php">
                         <i class="fa fa-plus-circle"></i>
-                        New League Year 
+                        New League Year
                     </a>
                 </li>
                 <li>

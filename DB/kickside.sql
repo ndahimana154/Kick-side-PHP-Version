@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2024 at 03:42 AM
+-- Generation Time: Jan 03, 2024 at 09:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -138,6 +138,32 @@ INSERT INTO `genres` (`id`, `genre_name`, `genre_description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `history_today`
+--
+
+CREATE TABLE `history_today` (
+  `ht_id` int(11) NOT NULL,
+  `history_genre` int(11) NOT NULL,
+  `history_title` varchar(255) NOT NULL,
+  `history_description` text NOT NULL,
+  `history_image` varchar(255) NOT NULL,
+  `history_date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `history_today`
+--
+
+INSERT INTO `history_today` (`ht_id`, `history_genre`, `history_title`, `history_description`, `history_image`, `history_date`) VALUES
+(1, 1, 'sdfrgrgre', 'tggggrgr', 'Image for: sdfrgrgre', '2002-01-03'),
+(2, 1, 'hfnhn ht htb', 'thbbybyrb  hgh bh h hg gh hg ebgb h.thbbybyrb  hgh bh h hg gh hg ebgb h .thbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb h.thbbybyrb  hgh bh h hg gh hg ebgb h thbbybyrb  hgh bh h hg gh hg ebgb h\r\n\r\n\r\nthbbybyrb  hgh bh h hg gh hg ebgb h.thbbybyrb  hgh bh h hg gh hg ebgb h thbbybyrb  hgh bh h hg gh hg ebgb h,thbbybyrb  hgh bh h hg gh hg ebgb h', 'Image for: hfnhn ht htb.png', '2001-01-03'),
+(3, 1, 'f', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image: dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03'),
+(4, 1, 'cd f  dfv fd  fd cv xc cx cx cx cx ', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03'),
+(5, 1, 'dcd f  dfv fd  fd cv xc cx cx cx cx ', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image - dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `journalists`
 --
 
@@ -159,7 +185,9 @@ CREATE TABLE `journalists` (
 
 INSERT INTO `journalists` (`id`, `first_name`, `last_name`, `user_name`, `email`, `phone_number`, `password`, `display_name`, `status`) VALUES
 (6, 'NN', 'BBBB', 'NN.BBBB', 'nb@f.e', '04837922', '81dc9bdb52d04dc20036dbd8313ed055', 'NN BBBB', 'Working'),
-(7, 'ghbgf', 'gfbgf', 'ghbgf.gfbgf', 'fbfb', 'fbfbd', '81dc9bdb52d04dc20036dbd8313ed055', 'ghbgf gfbgf', 'Working');
+(7, 'ghbgf', 'gfbgf', 'ghbgf.gfbgf', 'fbfb', 'fbfbd', '81dc9bdb52d04dc20036dbd8313ed055', 'ghbgf gfbgf', 'Working'),
+(8, 'aa', 'bbbb', 'aa.bbbb', 'aa@gmail.com', '07837232324', '81dc9bdb52d04dc20036dbd8313ed055', 'aa bbbb', 'Working'),
+(9, 'cs', 'as', 'cs.as', 'csas@gmail.com', '03564656565', '81dc9bdb52d04dc20036dbd8313ed055', 'cs as', 'Working');
 
 -- --------------------------------------------------------
 
@@ -294,7 +322,14 @@ INSERT INTO `news_articles` (`article_id`, `article_title`, `article_overview`, 
 (4, '54\'s Cristiano Ronaldo Jersey Give Away', 'Huge story to say about', 'Screenshot (1).png', 'Huge story to say about', 6, 1, '2024-01-02 10:35:25'),
 (5, 'Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 'Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 'pexels-lil-artsy-1213447.jpg', 'Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.\r\n\r\n\r\nTaylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches. Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.Taylor\'s Version 1989 is Making things on the FootBall Pitches.', 6, 1, '2024-01-02 20:38:01'),
 (6, 'Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano', ' Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. ', 'pexels-lukas-1420709.jpg', 'Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\n Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\n\r\nConfirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.\r\n\r\nConfirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano. Confirmed Thomas Partey will not be with Ghana Team due to Injury. Via. Fabrizio Romano.', 6, 1, '2024-01-02 20:40:17'),
-(7, 'Homee boy comming back home', 'WTF? is this?', 'pexels-ahmed-adly-1270184.jpg', 'I was thinking it\'s not real.', 6, 1, '2024-01-02 21:11:24');
+(7, 'Homee boy comming back home', 'WTF? is this?', 'pexels-ahmed-adly-1270184.jpg', 'I was thinking it\'s not real.', 6, 1, '2024-01-02 21:11:24'),
+(8, 'gfhtyht nbnttdnt h dhnn  hgdng hg gd gb gbd bf bf fgb vbvbfbgbr rgwbrw . htndh n ndtyh tynynf n. gbgfb', 'rgrthbng rthth t bgfbfg  gb ', 'Podcast_1 copy.jpg', ' gfbfb nd dgb g. yjyuyfnhn . yjr hyny nythdeytn yrqtbttgt g rt h. ethrtehre hrh trhwt ht ytedtyjuju.yjyje jehtrehtrwh.ywr req  rq yrtsy td.', 8, 1, '2024-01-03 07:16:23'),
+(9, 'e diuji nuinvudfn v/vdfv/dfvDFVfdvdfvfdvf.fd df df. d. dc.cx . d vdfvfdvafv fd dfav d cdc.dcsd.csdcds df dfa .   dfveveavvev.', 'sdfdbfgbtrgtrtrtttrhn hrt wtrgb', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' rtrtbw gtr grtgre grevgr', 8, 1, '2024-01-03 07:16:56'),
+(10, 'dfvv voi oi  iocvj io vi i i  . . . g .g fdb sfdf fd df f .f df .f .f fd d .f.fd dfvd df df d df d. d df dffd df fdfd dfv.', 'fdb  v bv v v v ', 'pexels-lukas-1420709.jpg', 'bvcb cv v', 8, 1, '2024-01-03 07:17:52'),
+(11, 'ggffvb b  bbb  g bbtb.yh h trbtr b', 'gfbfg gf gfx hg .jb gbtgb s  .htgbfvf ', 'pexels-ahmed-adly-1270184.jpg', 'dvdv v.uy tyn ,. trt ht', 8, 1, '2024-01-03 07:18:18'),
+(12, 'dfnbth trhh ntbnfg nr btr btrbrt btbrwt . gtrh n nd.', 'h tr hbt hrtgrt ', 'pexels-lukas-1420709.jpg', ' tgttrb b', 8, 1, '2024-01-03 07:26:20'),
+(13, ' rebfb regr gr g ', 'gr ggr gr g grgr ag', 'Podcast_1 copy.jpg', 'gr rrgrgergregrregeerg', 8, 2, '2024-01-03 07:26:40'),
+(14, 'regregrrgr', 'rgrgrgrggrgrgerg', 'Talk Show Podcast Cover Maker with Picture copy.jpg', 'regreggergregrgerg', 8, 1, '2024-01-03 07:31:38');
 
 -- --------------------------------------------------------
 
@@ -316,7 +351,14 @@ CREATE TABLE `news_articles_categories` (
 INSERT INTO `news_articles_categories` (`id`, `article`, `category`, `date_of_exclusiveness`) VALUES
 (3, 4, 3, '2024-01-02 20:49:44'),
 (4, 6, 3, '2024-01-02 20:57:13'),
-(6, 5, 3, '2024-01-02 20:58:06');
+(6, 5, 3, '2024-01-02 20:58:06'),
+(7, 11, 3, '2024-01-03 07:21:45'),
+(8, 10, 3, '2024-01-03 07:26:46'),
+(9, 7, 3, '2024-01-03 07:28:06'),
+(10, 9, 3, '2024-01-03 07:29:05'),
+(11, 8, 3, '2024-01-03 07:31:15'),
+(12, 13, 2, '2024-01-03 07:32:21'),
+(13, 12, 3, '2024-01-03 07:33:59');
 
 -- --------------------------------------------------------
 
@@ -352,7 +394,8 @@ INSERT INTO `news_articles_views` (`id`, `article`, `view_count`, `time`) VALUES
 (137, 5, 1, 2147483647),
 (138, 5, 1, 2147483647),
 (139, 7, 1, 2147483647),
-(140, 7, 1, 2147483647);
+(140, 7, 1, 2147483647),
+(141, 11, 1, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -440,6 +483,13 @@ ALTER TABLE `countries`
 --
 ALTER TABLE `genres`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `history_today`
+--
+ALTER TABLE `history_today`
+  ADD PRIMARY KEY (`ht_id`),
+  ADD KEY `gngfngfnfggf` (`history_genre`);
 
 --
 -- Indexes for table `journalists`
@@ -561,10 +611,16 @@ ALTER TABLE `genres`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `history_today`
+--
+ALTER TABLE `history_today`
+  MODIFY `ht_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `journalists`
 --
 ALTER TABLE `journalists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `journalists_favorites`
@@ -600,19 +656,19 @@ ALTER TABLE `league_year_teams`
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `news_articles_categories`
 --
 ALTER TABLE `news_articles_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `news_articles_views`
 --
 ALTER TABLE `news_articles_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -641,6 +697,12 @@ ALTER TABLE `arenas`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `fgvdvdvfdfvbfggtbtrtg` FOREIGN KEY (`genre`) REFERENCES `genres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `history_today`
+--
+ALTER TABLE `history_today`
+  ADD CONSTRAINT `gngfngfnfggf` FOREIGN KEY (`history_genre`) REFERENCES `genres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `journalists_favorites`

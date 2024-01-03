@@ -8,13 +8,19 @@
                 <li>
                     <a href="./add-article.php">
                         <i class="fa fa-plus-circle"></i>
-                        new articles
+                        New article
                     </a>
                 </li>
                 <li>
                     <a href="./articles-list.php">
                         <i class="fa fa-list"></i>
-                        articles list
+                        Articles list
+                    </a>
+                </li>
+                <li>
+                    <a href="./favorites-list.php">
+                        <i class="fa fa-list"></i>
+                        Favorite articles
                     </a>
                 </li>
             </ul>

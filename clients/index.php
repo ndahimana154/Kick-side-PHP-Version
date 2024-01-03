@@ -150,6 +150,45 @@ include('../assets/php/global/server.php');
                             </p>
                         </div>
                         <div class="contents-b">
+                            <?php
+                            $current_date = date('m-d');
+                            $get_today = mysqli_query($server, "SELECT * from history_today
+                                    WHERE history_date LIKE '%$current_date'
+                                ");
+                            if (mysqli_num_rows($get_today) < 1) {
+                            ?>
+                                <div class="onec">
+                                    <h4>
+                                        No history found.
+                                    </h4>
+                                </div>
+                                <?php
+                            } else {
+                                while ($data_today = mysqli_fetch_array($get_today)) {
+                                ?>
+                                    <div class="onec">
+                                        <h4>
+                                            <?php echo $data_today['history_title']; ?>
+                                        </h4>
+                                        <div class="date">
+                                            <?php
+                                            // $history_age = new DateTime($data_today['history_date']);
+                                            // $current_date = Date('Y-m-d');
+                                            // echo date_diff($history_age, $current_date);
+                                            ?>
+                                        </div>
+                                        <!-- <img src="../assets/history/ -->
+                                        <?php
+                                        // echo $data_today['history_image']; 
+                                        ?>
+                                        <!-- " alt="Image for: <?php
+                                                                // echo $data_today['history_title']; 
+                                                                ?>"> -->
+                                    </div>
+                            <?php
+                                }
+                            }
+                            ?>
                             <div class="onec">
                                 <h4>
                                     Title of the event.
@@ -242,162 +281,50 @@ include('../assets/php/global/server.php');
         <div class="fav-jou">
             <div class="cont">
                 <div class="fav-jou-cont">
-                    <h2>Reporter's favorites</h2>
+                    <h2>Journalist's Picks</h2>
                     <div class="fav-row">
                         <?php
                         $getreporand = mysqli_query($server, "SELECT * from journalists
                                 ORDER BY rand()
+                                LIMIT 10
                             ");
                         if (mysqli_num_rows($getreporand) > 0) {
                             while ($datareporand = mysqli_fetch_array($getreporand)) {
                                 $repoid = $datareporand['id'];
-                                $getrepofav = mysqli_query($server, "SELECT * from news_articles,journalists_favorites
+                                $getrepofav = mysqli_query($server, "SELECT * from news_articles,journalists_favorites,journalists
                                         WHERE news_articles.article_id = journalists_favorites.article
                                         AND journalists_favorites.journalist = '$repoid'
+                                        AND journalists.id = news_articles.article_author
                                         ORDER BY journalists_favorites.date_of_fav DESC
                                     ");
                                 if (mysqli_num_rows($getrepofav) > 0) {
                                     $datarepofav = mysqli_fetch_array($getrepofav);
                         ?>
-                                    reijfij
+                                    <div class="fav-box">
+                                        <div class="reporter">
+                                            <!-- <a href=""> -->
+                                                <!-- <img src="../assets/images/man_4140048.png" alt="Image for author"> -->
+                                                <p>
+                                                    <?php echo $datarepofav['first_name'] . " " . $datarepofav['last_name']; ?>
+                                                </p>
+                                            <!-- </a> -->
+                                        </div>
+                                        <div class="article">
+                                            <a href="read.php?a=<?php echo $datarepofav['article_id']; ?>">
+                                                <div class="info">
+                                                    <h4>
+                                                        <?php echo $datarepofav['article_title'] ?>
+                                                    </h4>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                         <?php
                                 }
                             }
                         }
                         ?>
 
-                        <div class="fav-box">
-                            <div class="reporter">
-                                <a href="">
-                                    <img src="../assets/images/man_4140048.png" alt="Image for author">
-                                    <p>
-                                        Firstname Lastname
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="article">
-                                <a href="">
-                                    <div class="info">
-                                        <h4>
-                                            Article title will be displayed here as
-                                            i have analysed and found it could be cool to do so.
-                                        </h4>
-
-                                    </div>
-
-                                </a>
-                            </div>
-                        </div>
-                        <div class="fav-box">
-                            <div class="reporter">
-                                <a href="">
-                                    <img src="../assets/images/man_4140048.png" alt="Image for author">
-                                    <p>
-                                        Firstname Lastname
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="article">
-                                <a href="">
-                                    <div class="info">
-                                        <h4>
-                                            Article title will be displayed here as
-                                            i have analysed and found it could be cool to do so.
-                                        </h4>
-
-                                    </div>
-
-                                </a>
-                            </div>
-                        </div>
-                        <div class="fav-box">
-                            <div class="reporter">
-                                <a href="">
-                                    <img src="../assets/images/man_4140048.png" alt="Image for author">
-                                    <p>
-                                        Firstname Lastname
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="article">
-                                <a href="">
-                                    <div class="info">
-                                        <h4>
-                                            Article title will be displayed here as
-                                            i have analysed and found it could be cool to do so.
-                                        </h4>
-
-                                    </div>
-
-                                </a>
-                            </div>
-                        </div>
-                        <div class="fav-box">
-                            <div class="reporter">
-                                <a href="">
-                                    <img src="../assets/images/man_4140048.png" alt="Image for author">
-                                    <p>
-                                        Firstname Lastname
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="article">
-                                <a href="">
-                                    <div class="info">
-                                        <h4>
-                                            Article title will be displayed here as
-                                            i have analysed and found it could be cool to do so.
-                                        </h4>
-
-                                    </div>
-
-                                </a>
-                            </div>
-                        </div>
-                        <div class="fav-box">
-                            <div class="reporter">
-                                <a href="">
-                                    <img src="../assets/images/man_4140048.png" alt="Image for author">
-                                    <p>
-                                        Firstname Lastname
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="article">
-                                <a href="">
-                                    <div class="info">
-                                        <h4>
-                                            Article title will be displayed here as
-                                            i have analysed and found it could be cool to do so.
-                                        </h4>
-
-                                    </div>
-
-                                </a>
-                            </div>
-                        </div>
-                        <div class="fav-box">
-                            <div class="reporter">
-                                <a href="">
-                                    <img src="../assets/images/man_4140048.png" alt="Image for author">
-                                    <p>
-                                        Firstname Lastname
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="article">
-                                <a href="">
-                                    <div class="info">
-                                        <h4>
-                                            Article title will be displayed here as
-                                            i have analysed and found it could be cool to do so.
-                                        </h4>
-
-                                    </div>
-
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
