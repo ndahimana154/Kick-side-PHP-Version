@@ -101,7 +101,7 @@ include('../assets/php/global/server.php');
 
                         </div>
                     </div>
-                    <div class="bn-cont">
+                    <div class="bn-cont" style="background: #fff;">
                         <h2>
                             Transfer Rumors
                         </h2>
@@ -150,7 +150,8 @@ include('../assets/php/global/server.php');
                         <div class="form">
                             <p>
                                 <label for="">
-                                    Today <?php echo date('Y-m-d') ?>
+                                    Today
+                                    <?php echo date('Y-m-d') ?>
                                 </label>
                             </p>
                         </div>
@@ -176,6 +177,12 @@ include('../assets/php/global/server.php');
                                         <h4>
                                             <?php echo $data_today['history_title']; ?>
                                         </h4>
+
+                                        <div class="img">
+                                            <img src="../assets/history/<?php echo $data_today['history_image']; ?>"
+                                                alt="Image for: <?php echo $data_today['history_title']; ?>">
+                                        </div>
+                                        <p>
                                         <div class="date">
                                             <?php
                                             $history_date = new DateTime($data_today['history_date']);
@@ -184,12 +191,7 @@ include('../assets/php/global/server.php');
                                             echo $interval->y . ' years ago';
                                             ?>
                                         </div>
-                                        <div class="img">
-                                            <img src="../assets/history/<?php echo $data_today['history_image']; ?>"
-                                                alt="Image for: <?php echo $data_today['history_title']; ?>">
-                                        </div>
-                                        <p>
-                                            <?php echo $data_today['history_description']; ?>
+                                        <?php echo $data_today['history_description']; ?>
                                         </p>
                                     </div>
                                     <?php

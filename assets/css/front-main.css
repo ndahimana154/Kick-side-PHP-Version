@@ -56,7 +56,6 @@ body {
   background: #259125;
   padding: 5px;
   border-radius: 5px;
-  border: 2px solid #000;
   color: #fff;
 }
 .container header nav {
@@ -125,6 +124,7 @@ body {
   flex: 2;
 }
 .lower .cont .bnews .bn-cont {
+  margin-bottom: 10px;
 }
 .lower .cont .bnews .bn-cont .b-row {
   display: flex;
@@ -138,13 +138,12 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-}
-.lower .cont .bnews .bn-cont .b-row .b-box a:hover {
   background: #fff;
   padding: 5px;
   margin-right: 5px;
   transition: 0.5s ease-in-out;
   border-radius: 5px;
+  margin-bottom: 5px;
 }
 .lower .cont .bnews .bn-cont .b-row .b-box a .img {
   flex: 1;
@@ -182,10 +181,10 @@ body {
 }
 .lower .cont .today .t-cont {
   padding-left: 5px;
-  background: #fff;
+  /* background: #fff; */
   height: 500px;
   border-radius: 5px;
-  box-shadow: 1px 4px 6px 2px #16161671;
+  /* box-shadow: 1px 4px 6px 2px #16161671; */
 }
 .lower .cont .today .t-cont .form {
   display: flex;
@@ -214,9 +213,12 @@ body {
 }
 .lower .cont .today .t-cont .contents-b .onec {
   padding: 5px;
+  background: #fff;
+  margin-bottom: 3px;
 }
 .lower .cont .today .t-cont .contents-b .onec h4 {
   font-size: 16px;
+  font-weight: 600;
 }
 .lower .cont .today .t-cont .contents-b .onec .date {
   font-size: 14px;
