@@ -27,6 +27,25 @@
         </div>
         <div class="nav">
             <h2>
+                What's in History
+            </h2>
+            <ul>
+                <li>
+                    <a href="./new-history.php">
+                        <i class="fa fa-plus-circle"></i>
+                        New History
+                    </a>
+                </li>
+                <li>
+                    <a href="./history-list.php">
+                        <i class="fa fa-list"></i>
+                        History List
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="nav">
+            <h2>
                 Teams
             </h2>
             <ul>
@@ -45,7 +64,7 @@
                 </li>
               
             </ul>
-        </div>
+        </div> -->
         <div class="nav">
             <h2>
                 Settings

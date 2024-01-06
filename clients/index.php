@@ -147,6 +147,13 @@ include('../assets/php/global/server.php');
                         <h2>
                             What's in History?
                         </h2>
+                        <div class="form">
+                            <p>
+                                <label for="">
+                                    Today <?php echo date('Y-m-d') ?>
+                                </label>
+                            </p>
+                        </div>
                         <div class="contents-b">
                             <?php
                             $current_date = date('m-d');

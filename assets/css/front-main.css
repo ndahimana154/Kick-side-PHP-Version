@@ -198,6 +198,10 @@ body {
   flex-direction: column;
   padding: 5px;
 }
+.lower .cont .today .t-cont .form p label {
+  color: #259125;
+  font-weight: bolder;
+}
 .lower .cont .today .t-cont .form p select {
   width: 100%;
   outline: 0;
