@@ -93,7 +93,9 @@ include("../assets/php/admins/session_checker.php");
                                                         value="<?php echo $data_All_articles['ht_id'] ?>">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
-
+                                                    <a href="edit-history.php?h=<?php echo $data_All_articles['ht_id'] ?>" class="edit">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                             <?php

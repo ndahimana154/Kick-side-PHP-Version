@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2024 at 01:05 PM
+-- Generation Time: Jan 03, 2024 at 02:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -156,11 +156,9 @@ CREATE TABLE `history_today` (
 --
 
 INSERT INTO `history_today` (`ht_id`, `history_genre`, `history_title`, `history_description`, `history_image`, `history_date`) VALUES
-(1, 1, 'sdfrgrgre', 'tggggrgr', 'Image for: sdfrgrgre', '2002-01-03'),
-(2, 1, 'hfnhn ht htb', 'thbbybyrb  hgh bh h hg gh hg ebgb h.thbbybyrb  hgh bh h hg gh hg ebgb h .thbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb hthbbybyrb  hgh bh h hg gh hg ebgb h.thbbybyrb  hgh bh h hg gh hg ebgb h thbbybyrb  hgh bh h hg gh hg ebgb h\r\n\r\n\r\nthbbybyrb  hgh bh h hg gh hg ebgb h.thbbybyrb  hgh bh h hg gh hg ebgb h thbbybyrb  hgh bh h hg gh hg ebgb h,thbbybyrb  hgh bh h hg gh hg ebgb h', 'Image for: hfnhn ht htb.png', '2001-01-03'),
-(3, 1, 'f', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image: dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03'),
 (4, 1, 'cd f  dfv fd  fd cv xc cx cx cx cx ', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03'),
-(5, 1, 'dcd f  dfv fd  fd cv xc cx cx cx cx ', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image - dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03');
+(5, 1, 'dcd f  dfv fd  fd cv xc cx cx cx cx ', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image - dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03'),
+(6, 1, '1st steamboat the North Star sails up the northern Red River, America', 'Victor Trumper\r\n1895 Victor Trumper makes first-class debut for NSW 17 yrs 64 days', 'History image - 1st steamboat the North Star sails up the northern Red River, America.png', '1985-01-05');
 
 -- --------------------------------------------------------
 
@@ -337,9 +335,7 @@ INSERT INTO `news_articles` (`article_id`, `article_title`, `article_overview`, 
 (10, 'dfvv voi oi  iocvj io vi i i  . . . g .g fdb sfdf fd df f .f df .f .f fd d .f.fd dfvd df df d df d. d df dffd df fdfd dfv.', 'fdb  v bv v v v ', 'pexels-lukas-1420709.jpg', 'bvcb cv v', 8, 1, '2024-01-03 07:17:52'),
 (11, 'ggffvb b  bbb  g bbtb.yh h trbtr b', 'gfbfg gf gfx hg .jb gbtgb s  .htgbfvf ', 'pexels-ahmed-adly-1270184.jpg', 'dvdv v.uy tyn ,. trt ht', 8, 1, '2024-01-03 07:18:18'),
 (13, ' rebfb regr gr g ', 'gr ggr gr g grgr ag', 'Podcast_1 copy.jpg', 'gr rrgrgergregrregeerg', 8, 2, '2024-01-03 07:26:40'),
-(16, 'dscdscdscdc dsvds d  d sdc sd x ', 'dsd   ', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' x xxcxcx x x xc c c cdsfrev f fgrbtybg gh bgfb g  ', 6, 1, '2024-01-03 13:54:49'),
-(17, 'dsvdvdvvddd', 'dsvdv fv fv f', 'pexels-lukas-1420709.jpg', 'cx vadfvvdf', 6, 1, '2024-01-03 14:02:20'),
-(18, 'dvdvfvfd f fd f df', 'dfvfdvfdfvdfvfvf', 'pexels-ahmed-adly-1270184.jpg', 'vdfvavdvfds', 6, 1, '2024-01-03 14:02:37');
+(16, 'dscdscdscdc dsvds d  d sdc sd x ', 'dsd   ', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' x xxcxcx x x xc c c cdsfrev f fgrbtybg gh bgfb g  ', 6, 1, '2024-01-03 13:54:49');
 
 -- --------------------------------------------------------
 
@@ -367,8 +363,7 @@ INSERT INTO `news_articles_categories` (`id`, `article`, `category`, `date_of_ex
 (10, 9, 3, '2024-01-03 07:29:05'),
 (11, 8, 3, '2024-01-03 07:31:15'),
 (12, 13, 2, '2024-01-03 07:32:21'),
-(14, 16, 4, '2024-01-03 14:00:14'),
-(15, 17, 4, '2024-01-03 14:02:52');
+(14, 16, 4, '2024-01-03 14:00:14');
 
 -- --------------------------------------------------------
 
@@ -393,7 +388,11 @@ INSERT INTO `news_articles_views` (`id`, `article`, `view_count`, `time`) VALUES
 (139, 7, 1, 2147483647),
 (140, 7, 1, 2147483647),
 (141, 11, 1, 2147483647),
-(142, 6, 1, 2147483647);
+(142, 6, 1, 2147483647),
+(146, 6, 1, 2147483647),
+(147, 6, 1, 2147483647),
+(148, 6, 1, 2147483647),
+(149, 6, 1, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -612,7 +611,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `history_today`
 --
 ALTER TABLE `history_today`
-  MODIFY `ht_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ht_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `journalists`
@@ -654,7 +653,7 @@ ALTER TABLE `league_year_teams`
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `news_articles_categories`
@@ -666,7 +665,7 @@ ALTER TABLE `news_articles_categories`
 -- AUTO_INCREMENT for table `news_articles_views`
 --
 ALTER TABLE `news_articles_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `teams`
