@@ -35,6 +35,25 @@
         </div>
         <div class="nav">
             <h2>
+                Audio Haven.
+            </h2>
+            <ul>
+                <li>
+                    <a href="./new-haven.php">
+                        <i class="fa fa-plus-circle"></i>
+                        New Haven
+                    </a>
+                </li>
+                <li>
+                    <a href="./haven-list.php">
+                        <i class="fa fa-list"></i>
+                        Haven List
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav">
+            <h2>
                 What's in History
             </h2>
             <ul>

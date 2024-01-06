@@ -208,7 +208,7 @@ include('../assets/php/global/server.php');
             <div class="cont">
                 <div class="pod-cont">
                     <h2>
-                        Audio Haven.
+                        Podcasts
                     </h2>
                     <div class="casts-row">
                         <div class="cast-box">
