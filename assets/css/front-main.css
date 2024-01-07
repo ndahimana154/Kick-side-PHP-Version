@@ -398,7 +398,6 @@ body {
   border-radius: 5px;
 }
 .article-cont .intro .info {
-  /* padding: 5px; */
   padding-left: 0;
   flex: 1;
 }
@@ -406,7 +405,6 @@ body {
   padding: 5px;
   color: #fff;
   background: #259125;
-  /* border-radius: 5px; */
 }
 pre {
   white-space: pre-wrap;
@@ -530,7 +528,7 @@ footer .footer-cont .brand .sep {
   margin-right: 5px;
 }
 footer .footer-cont .brand p {
-  padding: 10px;
+  padding: 15px;
   padding-left: 0;
 }
 footer .row {

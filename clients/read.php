@@ -108,7 +108,7 @@ include('../assets/php/global/server.php');
                                         <?php echo $get_new_views['sum(view_count)']; ?>
                                     </span>
                                 </div>
-                                <div class="full-left">
+                                <div class="full-left" style="margin-top:10px;">
                                     <?php echo "<pre>" . trim($data_story_exists['article_full_details']) . "</pre>"; ?>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@ include('../assets/php/global/server.php');
                                         <div>
                                             <?php echo $count++; ?>
                                         </div>
-                                        <a href="">
+                                        <a href="read.php?a=<?php echo $dataRelated['article_id']; ?>">
                                             <?php echo $dataRelated['article_title'] ?>
                                         </a>
                                     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 01:12 PM
+-- Generation Time: Jan 07, 2024 at 05:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -104,18 +104,19 @@ CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `category_name` varchar(255) NOT NULL,
   `category_description` text NOT NULL,
-  `genre` int(11) NOT NULL
+  `genre` int(11) NOT NULL,
+  `category_icon` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `category_name`, `category_description`, `genre`) VALUES
-(1, 'Exclusive', 'News articles that are exclusive', 1),
-(2, 'NBA', 'News for NBA', 2),
-(3, 'Breaking News', '', 1),
-(4, 'Transfer Rumors', '', 1);
+INSERT INTO `categories` (`id`, `category_name`, `category_description`, `genre`, `category_icon`) VALUES
+(1, 'Exclusive', 'News articles that are exclusive', 1, 'fa-star'),
+(2, 'NBA', 'News for NBA', 2, 'fa-basketball-ball'),
+(3, 'Breaking News', '', 1, 'fa-exclamation-triangle'),
+(4, 'Transfer Rumors', '', 1, 'fa-exchange-alt');
 
 -- --------------------------------------------------------
 
@@ -148,16 +149,17 @@ INSERT INTO `countries` (`country_id`, `country_name`, `country_description`) VA
 CREATE TABLE `genres` (
   `id` int(11) NOT NULL,
   `genre_name` varchar(255) NOT NULL,
-  `genre_description` text NOT NULL
+  `genre_description` text NOT NULL,
+  `genre_icon` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `genres`
 --
 
-INSERT INTO `genres` (`id`, `genre_name`, `genre_description`) VALUES
-(1, 'Football', 'This is football '),
-(2, 'Basketball', 'Basketball play');
+INSERT INTO `genres` (`id`, `genre_name`, `genre_description`, `genre_icon`) VALUES
+(1, 'Football', 'This is football ', 'fa-football'),
+(2, 'Basketball', 'Basketball play', 'fa-basketball');
 
 -- --------------------------------------------------------
 
@@ -589,7 +591,16 @@ INSERT INTO `news_articles_views` (`id`, `article`, `view_count`, `time`) VALUES
 (319, 6, 1, 2147483647),
 (320, 6, 1, 2147483647),
 (321, 6, 1, 2147483647),
-(322, 6, 1, 2147483647);
+(322, 6, 1, 2147483647),
+(323, 20, 1, 2147483647),
+(324, 20, 1, 2147483647),
+(325, 20, 1, 2147483647),
+(326, 4, 1, 2147483647),
+(327, 10, 1, 2147483647),
+(328, 20, 1, 2147483647),
+(329, 20, 1, 2147483647),
+(330, 6, 1, 2147483647),
+(331, 6, 1, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -875,7 +886,7 @@ ALTER TABLE `news_articles_categories`
 -- AUTO_INCREMENT for table `news_articles_views`
 --
 ALTER TABLE `news_articles_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
 
 --
 -- AUTO_INCREMENT for table `teams`
