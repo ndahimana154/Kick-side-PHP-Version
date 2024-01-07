@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2024 at 02:12 PM
+-- Generation Time: Jan 07, 2024 at 01:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -70,6 +70,29 @@ INSERT INTO `arenas` (`arena_id`, `arena_name`, `description`, `country`, `city`
 (2, 'Emirates Stadium', 'Stadium for Arsenal', 2, 'London', 38000, '1903-12-24'),
 (3, 'Etihad Stadium', '', 2, 'Manchester', 30000, ''),
 (4, 'Kigali Pele Stadium', 'THe stadium formely names Petit Stade Nyamirambo, but after the Pele death it was Re Innovated and named Kigali Pele Stadium', 1, 'Kigali', 30000, '2003-01-26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audio_havens`
+--
+
+CREATE TABLE `audio_havens` (
+  `haven_id` int(11) NOT NULL,
+  `haven_title` text NOT NULL,
+  `haven_description` text NOT NULL,
+  `haven_image_name` text NOT NULL,
+  `haven_starting_date` varchar(255) NOT NULL,
+  `haven_journalist` int(11) NOT NULL,
+  `haven_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `audio_havens`
+--
+
+INSERT INTO `audio_havens` (`haven_id`, `haven_title`, `haven_description`, `haven_image_name`, `haven_starting_date`, `haven_journalist`, `haven_status`) VALUES
+(1, 'f fdfvvf c c cv', 'ddsvv fv cvcvcxv', 'Podcast Cover - f fdfvvf c c cv.webp', '2024-01-06', 8, 'Disabled');
 
 -- --------------------------------------------------------
 
@@ -156,9 +179,10 @@ CREATE TABLE `history_today` (
 --
 
 INSERT INTO `history_today` (`ht_id`, `history_genre`, `history_title`, `history_description`, `history_image`, `history_date`) VALUES
-(4, 1, 'cd f  dfv fd  fd cv xc cx cx cx cx ', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03'),
 (5, 1, 'dcd f  dfv fd  fd cv xc cx cx cx cx ', 'd   cvvsfv fd  f c c cx cxvdvd  vdvd', 'History image - dcd f  dfv fd  fd cv xc cx cx cx cx .png', '0111-01-03'),
-(6, 1, '1st steamboat the North Star sails up the northern Red River, America', 'Victor Trumper\r\n1895 Victor Trumper makes first-class debut for NSW 17 yrs 64 days', 'History image - 1st steamboat the North Star sails up the northern Red River, America.png', '1985-01-05');
+(6, 1, '1st steamboat the North Star sails up the northern Red River, Americagfhgf', 'Victor Trumper\r\n1895 Victor Trumper makes first-class debut for NSW 17 yrs 64 days', 'History image - 1st steamboat the North Star sails up the northern Red River, America.png', '1985-01-05'),
+(8, 2, 'dvd fbgb gfbgfb g v vc xv bgtbf', 'bfbfbfbd', 'History image - dvd fbgb gfbgfb g v vc xv bgtbf.png', '2024-01-06'),
+(9, 2, 'ddhfggbg', 'gvffd cxbbgbgfbfgbgf', 'History image - ddhfggbg.webp', '2024-01-06');
 
 -- --------------------------------------------------------
 
@@ -335,7 +359,8 @@ INSERT INTO `news_articles` (`article_id`, `article_title`, `article_overview`, 
 (10, 'dfvv voi oi  iocvj io vi i i  . . . g .g fdb sfdf fd df f .f df .f .f fd d .f.fd dfvd df df d df d. d df dffd df fdfd dfv.', 'fdb  v bv v v v ', 'pexels-lukas-1420709.jpg', 'bvcb cv v', 8, 1, '2024-01-03 07:17:52'),
 (11, 'ggffvb b  bbb  g bbtb.yh h trbtr b', 'gfbfg gf gfx hg .jb gbtgb s  .htgbfvf ', 'pexels-ahmed-adly-1270184.jpg', 'dvdv v.uy tyn ,. trt ht', 8, 1, '2024-01-03 07:18:18'),
 (13, ' rebfb regr gr g ', 'gr ggr gr g grgr ag', 'Podcast_1 copy.jpg', 'gr rrgrgergregrregeerg', 8, 2, '2024-01-03 07:26:40'),
-(16, 'dscdscdscdc dsvds d  d sdc sd x ', 'dsd   ', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' x xxcxcx x x xc c c cdsfrev f fgrbtybg gh bgfb g  ', 6, 1, '2024-01-03 13:54:49');
+(16, 'dscdscdscdc dsvds d  d sdc sd x ', 'dsd   ', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' x xxcxcx x x xc c c cdsfrev f fgrbtybg gh bgfb g  ', 6, 1, '2024-01-03 13:54:49'),
+(20, 'hgj fgfj hcn sf ree hh', 'g htt jyhryjyj yjyyjyj', 'victor-trumper.webp', ' jyjdy djdhdh trhthtdhtdhd hdgdghgn', 8, 1, '2024-01-06 10:47:07');
 
 -- --------------------------------------------------------
 
@@ -363,7 +388,8 @@ INSERT INTO `news_articles_categories` (`id`, `article`, `category`, `date_of_ex
 (10, 9, 3, '2024-01-03 07:29:05'),
 (11, 8, 3, '2024-01-03 07:31:15'),
 (12, 13, 2, '2024-01-03 07:32:21'),
-(14, 16, 4, '2024-01-03 14:00:14');
+(14, 16, 4, '2024-01-03 14:00:14'),
+(16, 20, 4, '2024-01-06 10:47:47');
 
 -- --------------------------------------------------------
 
@@ -392,7 +418,178 @@ INSERT INTO `news_articles_views` (`id`, `article`, `view_count`, `time`) VALUES
 (146, 6, 1, 2147483647),
 (147, 6, 1, 2147483647),
 (148, 6, 1, 2147483647),
-(149, 6, 1, 2147483647);
+(149, 6, 1, 2147483647),
+(152, 20, 1, 2147483647),
+(153, 20, 1, 2147483647),
+(154, 20, 1, 2147483647),
+(155, 20, 1, 2147483647),
+(156, 20, 1, 2147483647),
+(157, 4, 1, 2147483647),
+(158, 6, 1, 2147483647),
+(159, 20, 1, 2147483647),
+(160, 20, 1, 2147483647),
+(161, 6, 1, 2147483647),
+(162, 6, 1, 2147483647),
+(163, 6, 1, 2147483647),
+(164, 6, 1, 2147483647),
+(165, 6, 1, 2147483647),
+(166, 6, 1, 2147483647),
+(167, 6, 1, 2147483647),
+(168, 6, 1, 2147483647),
+(169, 6, 1, 2147483647),
+(170, 6, 1, 2147483647),
+(171, 6, 1, 2147483647),
+(172, 6, 1, 2147483647),
+(173, 6, 1, 2147483647),
+(174, 6, 1, 2147483647),
+(175, 6, 1, 2147483647),
+(176, 6, 1, 2147483647),
+(177, 6, 1, 2147483647),
+(178, 6, 1, 2147483647),
+(179, 6, 1, 2147483647),
+(180, 6, 1, 2147483647),
+(181, 6, 1, 2147483647),
+(182, 6, 1, 2147483647),
+(183, 6, 1, 2147483647),
+(184, 6, 1, 2147483647),
+(185, 6, 1, 2147483647),
+(186, 6, 1, 2147483647),
+(187, 6, 1, 2147483647),
+(188, 6, 1, 2147483647),
+(189, 6, 1, 2147483647),
+(190, 6, 1, 2147483647),
+(191, 6, 1, 2147483647),
+(192, 6, 1, 2147483647),
+(193, 6, 1, 2147483647),
+(194, 6, 1, 2147483647),
+(195, 6, 1, 2147483647),
+(196, 6, 1, 2147483647),
+(197, 6, 1, 2147483647),
+(198, 6, 1, 2147483647),
+(199, 6, 1, 2147483647),
+(200, 6, 1, 2147483647),
+(201, 6, 1, 2147483647),
+(202, 6, 1, 2147483647),
+(203, 6, 1, 2147483647),
+(204, 6, 1, 2147483647),
+(205, 6, 1, 2147483647),
+(206, 6, 1, 2147483647),
+(207, 6, 1, 2147483647),
+(208, 6, 1, 2147483647),
+(209, 6, 1, 2147483647),
+(210, 20, 1, 2147483647),
+(211, 20, 1, 2147483647),
+(212, 20, 1, 2147483647),
+(213, 20, 1, 2147483647),
+(214, 20, 1, 2147483647),
+(215, 20, 1, 2147483647),
+(216, 20, 1, 2147483647),
+(217, 20, 1, 2147483647),
+(218, 20, 1, 2147483647),
+(219, 20, 1, 2147483647),
+(220, 20, 1, 2147483647),
+(221, 11, 1, 2147483647),
+(222, 11, 1, 2147483647),
+(223, 11, 1, 2147483647),
+(224, 11, 1, 2147483647),
+(225, 11, 1, 2147483647),
+(226, 11, 1, 2147483647),
+(227, 11, 1, 2147483647),
+(228, 11, 1, 2147483647),
+(229, 6, 1, 2147483647),
+(230, 11, 1, 2147483647),
+(231, 6, 1, 2147483647),
+(232, 11, 1, 2147483647),
+(233, 6, 1, 2147483647),
+(234, 6, 1, 2147483647),
+(235, 6, 1, 2147483647),
+(236, 6, 1, 2147483647),
+(237, 6, 1, 2147483647),
+(238, 6, 1, 2147483647),
+(239, 6, 1, 2147483647),
+(240, 6, 1, 2147483647),
+(241, 6, 1, 2147483647),
+(242, 6, 1, 2147483647),
+(243, 6, 1, 2147483647),
+(244, 6, 1, 2147483647),
+(245, 6, 1, 2147483647),
+(246, 6, 1, 2147483647),
+(247, 6, 1, 2147483647),
+(248, 6, 1, 2147483647),
+(249, 6, 1, 2147483647),
+(250, 6, 1, 2147483647),
+(251, 6, 1, 2147483647),
+(252, 6, 1, 2147483647),
+(253, 6, 1, 2147483647),
+(254, 6, 1, 2147483647),
+(255, 6, 1, 2147483647),
+(256, 6, 1, 2147483647),
+(257, 6, 1, 2147483647),
+(258, 6, 1, 2147483647),
+(259, 6, 1, 2147483647),
+(260, 6, 1, 2147483647),
+(261, 6, 1, 2147483647),
+(262, 6, 1, 2147483647),
+(263, 6, 1, 2147483647),
+(264, 6, 1, 2147483647),
+(265, 6, 1, 2147483647),
+(266, 6, 1, 2147483647),
+(267, 6, 1, 2147483647),
+(268, 6, 1, 2147483647),
+(269, 6, 1, 2147483647),
+(270, 6, 1, 2147483647),
+(271, 6, 1, 2147483647),
+(272, 6, 1, 2147483647),
+(273, 6, 1, 2147483647),
+(274, 6, 1, 2147483647),
+(275, 6, 1, 2147483647),
+(276, 6, 1, 2147483647),
+(277, 6, 1, 2147483647),
+(278, 6, 1, 2147483647),
+(279, 6, 1, 2147483647),
+(280, 6, 1, 2147483647),
+(281, 6, 1, 2147483647),
+(282, 6, 1, 2147483647),
+(283, 6, 1, 2147483647),
+(284, 6, 1, 2147483647),
+(285, 6, 1, 2147483647),
+(286, 6, 1, 2147483647),
+(287, 6, 1, 2147483647),
+(288, 7, 1, 2147483647),
+(289, 7, 1, 2147483647),
+(290, 7, 1, 2147483647),
+(291, 7, 1, 2147483647),
+(292, 7, 1, 2147483647),
+(293, 7, 1, 2147483647),
+(294, 7, 1, 2147483647),
+(295, 6, 1, 2147483647),
+(296, 6, 1, 2147483647),
+(297, 6, 1, 2147483647),
+(298, 6, 1, 2147483647),
+(299, 6, 1, 2147483647),
+(300, 6, 1, 2147483647),
+(301, 6, 1, 2147483647),
+(302, 6, 1, 2147483647),
+(303, 6, 1, 2147483647),
+(304, 6, 1, 2147483647),
+(305, 6, 1, 2147483647),
+(306, 6, 1, 2147483647),
+(307, 6, 1, 2147483647),
+(308, 6, 1, 2147483647),
+(309, 6, 1, 2147483647),
+(310, 6, 1, 2147483647),
+(311, 6, 1, 2147483647),
+(312, 6, 1, 2147483647),
+(313, 6, 1, 2147483647),
+(314, 6, 1, 2147483647),
+(315, 6, 1, 2147483647),
+(316, 6, 1, 2147483647),
+(317, 6, 1, 2147483647),
+(318, 6, 1, 2147483647),
+(319, 6, 1, 2147483647),
+(320, 6, 1, 2147483647),
+(321, 6, 1, 2147483647),
+(322, 6, 1, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -461,6 +658,13 @@ ALTER TABLE `admins`
 ALTER TABLE `arenas`
   ADD PRIMARY KEY (`arena_id`),
   ADD KEY `wededeewe` (`country`);
+
+--
+-- Indexes for table `audio_havens`
+--
+ALTER TABLE `audio_havens`
+  ADD PRIMARY KEY (`haven_id`),
+  ADD KEY `dsfdsfdsdsdf` (`haven_journalist`);
 
 --
 -- Indexes for table `categories`
@@ -590,6 +794,12 @@ ALTER TABLE `arenas`
   MODIFY `arena_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `audio_havens`
+--
+ALTER TABLE `audio_havens`
+  MODIFY `haven_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -611,7 +821,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `history_today`
 --
 ALTER TABLE `history_today`
-  MODIFY `ht_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ht_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `journalists`
@@ -653,19 +863,19 @@ ALTER TABLE `league_year_teams`
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `news_articles_categories`
 --
 ALTER TABLE `news_articles_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `news_articles_views`
 --
 ALTER TABLE `news_articles_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -688,6 +898,12 @@ ALTER TABLE `tournaments`
 --
 ALTER TABLE `arenas`
   ADD CONSTRAINT `wededeewe` FOREIGN KEY (`country`) REFERENCES `countries` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `audio_havens`
+--
+ALTER TABLE `audio_havens`
+  ADD CONSTRAINT `dsfdsfdsdsdf` FOREIGN KEY (`haven_journalist`) REFERENCES `journalists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `categories`
