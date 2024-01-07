@@ -8,8 +8,10 @@ include("../assets/php/global/server.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../assets/images/favicon.jpg" type="image/x-icon">      
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../assets/images/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/back-main.css">
     <link rel="stylesheet" href="../assets/css/front-main.css">
     <title>KickSide || Login</title>
@@ -17,9 +19,11 @@ include("../assets/php/global/server.php");
 
 <body>
     <main>
-        <?php
+        <div class="container">
+            <?php
             include("../assets/php/clients/header.php");
-        ?>
+            ?>
+        </div>
         <div class="login-cont">
             <div class="login">
                 <h2>
@@ -36,7 +40,7 @@ include("../assets/php/global/server.php");
                                 AND BINARY password = '$pw'
                             ");
                         if (mysqli_num_rows($check_credentials) < 1) {
-                            $check_journalist = mysqli_query($server,"SELECT * from journalists
+                            $check_journalist = mysqli_query($server, "SELECT * from journalists
                                 WHERE (BINARY user_name = '$un' OR BINARY email = '$un')
                                 AND BINARY  password = '$pw'
                             ");
@@ -46,8 +50,7 @@ include("../assets/php/global/server.php");
                                     Invalid Credentials.
                                 </div>
                                 <?php
-                            }
-                            else {
+                            } else {
                                 $data_check_journalists = mysqli_fetch_array($check_journalist);
                                 $_SESSION['acting_journalist_id'] = $data_check_journalists['id'];
                                 ?>
@@ -56,7 +59,7 @@ include("../assets/php/global/server.php");
                                 </div>
                                 <?php
                             }
-                    
+
                         } else {
                             $data_check_credentials = mysqli_fetch_array($check_credentials);
                             $_SESSION['acting_admin_id'] = $data_check_credentials['id'];
@@ -75,7 +78,10 @@ include("../assets/php/global/server.php");
                         <label for="Username">
                             Username or Email
                         </label>
-                        <input type="text" name="userN" id="" placeholder="type..." value = "<?php if(isset($_POST['signIn'])) { echo $_POST['userN'];} ?>">
+                        <input type="text" name="userN" id="" placeholder="type..."
+                            value="<?php if (isset($_POST['signIn'])) {
+                                echo $_POST['userN'];
+                            } ?>">
                     </p>
                     <p>
                         <label for="Password">

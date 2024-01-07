@@ -3,7 +3,7 @@
         <div class="footer-cont">
             <div class="brand">
                 <img src="../assets/images/KickSide - logo.png" alt="THe KickSide Logo">
-                <a href="./index.php"> KikSide Rw</a>
+                <a href="../clients/index.php"> KikSide Rw</a>
                 <div class="sep"></div>
                 <p>
                     Here to Update.
@@ -17,45 +17,46 @@
                     <div class="impo-cont">
                         <ul>
                             <li>
-                                <a href="">
+                                <a href="../clients/index.php" title="Home">
                                     <i class="fa fa-house"></i>
-                                    <span>
-                                        Home
-                                    </span>
+                                    <span>Home</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-house"></i>
-                                    <span>
-                                        Home
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-house"></i>
-                                    <span>
-                                        Home
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-house"></i>
-                                    <span>
-                                        Home
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-house"></i>
-                                    <span>
-                                        Home
-                                    </span>
-                                </a>
-                            </li>
+                            <?php
+                            $getGenres = mysqli_query($server, "SELECT * from genres
+                  ORDER BY genre_name ASC
+               ");
+                            while ($dataGenre = mysqli_fetch_array($getGenres)) {
+                                ?>
+                                <li>
+                                    <a href="../clients/by-genre.php?g=<?php echo $dataGenre['id']; ?>"
+                                        title="<?php echo $dataGenre['genre_name'] ?>">
+                                        <i class="fa <?php echo $dataGenre['genre_icon']; ?>"></i>
+                                        <span>
+                                            <?php echo $dataGenre['genre_name'] ?>
+                                        </span>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            $getCategories = mysqli_query($server, "SELECT * from categories
+                                ORDER BY category_name ASC
+                            ");
+                            while ($dataCategories = mysqli_fetch_array($getCategories)) {
+                                ?>
+                                <li>
+                                    <a href="../clients/by-category.php?c=<?php echo $dataCategories['id']; ?>"
+                                        title="<?php echo $dataCategories['category_name']; ?>">
+                                        <i class="fa <?php echo $dataCategories['category_icon'] ?>"></i>
+                                        <span>
+                                            <?php echo $dataCategories['category_name']; ?>
+                                        </span>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                            ?>
+
                         </ul>
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                                 <a href="">
                                     <i class="fa fa-phone"></i>
                                     <p>
-                                        +250722893974
+                                       &nbsp;  (+250) 722 893 974
                                     </p>
                                 </a>
                             </li>
@@ -109,14 +110,14 @@
             <div class="socialncopy">
                 <div class="copy">
                     &copy;
-                <?php
-                $currentYear = date("Y");
-                if ($currentYear > 2023) {
-                    echo "2023 - " . $currentYear;
-                } else {
-                    echo $currentYear;
-                }
-                ?>
+                    <?php
+                    $currentYear = date("Y");
+                    if ($currentYear > 2023) {
+                        echo "2023 - " . $currentYear;
+                    } else {
+                        echo $currentYear;
+                    }
+                    ?>
                 </div>
                 <div class="sep"></div>
                 <a href="https://www.instagram.com/kickside_rw" target="_blank">
