@@ -76,9 +76,30 @@ body {
   padding: 5px;
   text-decoration: none;
 }
+.search {
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.searchForm {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.searchForm input[type="search"] {
+  padding: 5px;
+  outline: 0;
+  background: transparent;
+  border: 1px solid #259125;
+  width: 100%;
+  border-radius: 5px;
+}
 
 .hero {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 .hero .box a {
   display: flex;
@@ -321,6 +342,105 @@ body {
   width: 100%;
 }
 
+
+
+.article-cont {
+
+}
+.article-cont h3 {
+  font-weight: 600;
+  font-size: 20px;
+  color: blue;
+}
+.article-cont .author {
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.article-cont .author .img img {
+  width: 80px;
+}
+.article-cont .author .ainfo {
+  padding: 10px;
+}
+.article-cont .author a {
+  color: #000;
+  font-weight: bold;
+}
+.article-cont .author p {
+  font-weight: bold;
+}
+.article-cont .intro {
+  display:  flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+ }
+.article-cont .intro .img-div {
+  /* width: 400px; */
+  flex: 1;
+  padding: 5px;
+  padding-left: 0;
+}
+.article-cont .intro .img-div img {
+  width: 100%;
+  border-radius: 5px;
+}
+.article-cont .intro .info {
+  /* padding: 5px; */
+  padding-left: 0;
+  flex: 1;
+}
+.article-cont .btnz span {
+  padding: 5px;
+  color: #fff;
+  background: #259125;
+  /* border-radius: 5px; */
+}
+pre {
+  white-space: pre-wrap;
+  margin-bottom: 10px;
+}
+.related-articles {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.related-articles .related-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.related-articles .related-row .related-box {
+  padding: 5px;
+  /* padding-left: 0; */
+  margin: 5px;
+  margin-left: 0;
+  border-radius: 5px;
+  width: 48%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.related-articles .related-row .related-box div {
+  color: tomato;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  font-weight: bold;
+}
+.related-articles .related-row .related-box a {
+  color: #000;
+  font-weight: bold;
+  flex: 1;
+  padding: 10px;
+}
+
+
+
 footer {
   background: #000;
   margin-top: 20px;
@@ -393,7 +513,7 @@ footer .row .impo-links ul li a span {
 footer .row .about {
   flex: 4;
 }
-footer .row .about .about-cont  p {
+footer .row .about .about-cont p {
   font-weight: bold;
 }
 footer .row .contacts .contact-cont ul {
@@ -427,7 +547,7 @@ footer .socialncopy .sep {
 footer .socialncopy a {
   margin-right: 10px;
 }
-footer .socialncopy a img{
+footer .socialncopy a img {
   width: 30px;
   border-radius: 15px;
 }

@@ -119,10 +119,10 @@
                 ?>
                 </div>
                 <div class="sep"></div>
-                <a href="www.instagram/kickside_rw" target="_blank">
+                <a href="https://www.instagram.com/kickside_rw" target="_blank">
                     <img src="../assets/images/instagram.png" alt="">
                 </a>
-                <a href="www.x.com/kickside_rw" target="_blank">
+                <a href="https://www.x.com/kickside_rw" target="_blank">
                     <img class="x" src="../assets/images/twitter.png" alt="">
                 </a>
             </div>

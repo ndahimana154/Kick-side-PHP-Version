@@ -20,10 +20,11 @@ include('../assets/php/global/server.php');
         <?php
         include('../assets/php/clients/header.php');
         ?>
+
         <div class="hero">
             <div class="cont">
-
                 <?php
+                include("../assets/php/clients/search-form.php");
                 $getlast = mysqli_query($server, "SELECT * from news_articles,genres WHERE news_articles.article_genre  = genres.id ORDER BY article_publish_time DESC ");
                 if (mysqli_num_rows($getlast) >= 1) {
                     $datalast = mysqli_fetch_array($getlast);
@@ -101,11 +102,11 @@ include('../assets/php/global/server.php');
 
                         </div>
                     </div>
-                    <div class="bn-cont" style="background: #fff;">
+                    <div class="bn-cont">
                         <h2>
                             Transfer Rumors
                         </h2>
-                        <div class="b-row">
+                        <div class="b-row" style="background: #fff;">
                             <?php
                             $getbreaking = mysqli_query($server, "SELECT * from news_articles,categories,news_articles_categories,journalists WHERE news_articles.article_id = news_articles_categories.article
                                 AND news_articles_categories.category  = categories.id
@@ -151,7 +152,7 @@ include('../assets/php/global/server.php');
                             <p>
                                 <label for="">
                                     Today
-                                    <?php echo date('Y-m-d') ?>
+                                    <?php echo date('D, d-M-Y') ?>
                                 </label>
                             </p>
                         </div>
@@ -331,11 +332,9 @@ include('../assets/php/global/server.php');
                 </div>
             </div>
         </div>
-
         <?php
         include('../assets/php/clients/footer.php');
         ?>
-
     </div>
 </body>
 
