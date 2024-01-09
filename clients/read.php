@@ -97,7 +97,7 @@ include('../assets/php/global/server.php');
                                         alt="">
                                 </div>
                                 <div class="info">
-                                    <pre><?php echo trim($data_story_exists['article_overview']); ?></pre>
+                                    <pre><b><?php echo trim($data_story_exists['article_overview']); ?></b></pre>
                                 </div>
                             </div>
 
@@ -135,7 +135,7 @@ include('../assets/php/global/server.php');
                                     ?>
                                     <div class="related-box">
                                         <div>
-                                            <?php echo $count++; ?>
+                                            <?php echo $count++."."; ?>
                                         </div>
                                         <a href="read.php?a=<?php echo $dataRelated['article_id']; ?>">
                                             <?php echo $dataRelated['article_title'] ?>

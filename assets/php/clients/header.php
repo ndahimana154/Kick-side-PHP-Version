@@ -57,7 +57,14 @@
                <?php
             }
             ?>
-
+            <li>
+               <a href="../clients/podcasts.php">
+               <i class="fas fa-podcast"></i>
+               <span>
+                  Podcasts
+               </span>
+               </a>
+            </li>
          </ul>
       </div>
    </nav>

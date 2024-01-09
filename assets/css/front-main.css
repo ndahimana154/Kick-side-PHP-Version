@@ -290,10 +290,19 @@ body {
 }
 .podcasts .casts-row .cast-box a .info h4 {
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .podcasts .casts-row .cast-box a .info p {
   font-weight: 600;
   font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
 }
 
 .fav-jou {
@@ -387,6 +396,10 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
  }
+.article-cont iframe {
+  width: 100%;
+  margin-bottom: 10px;
+}
 .article-cont .intro .img-div {
   /* width: 400px; */
   flex: 1;
@@ -403,6 +416,7 @@ body {
 }
 .article-cont .btnz span {
   padding: 5px;
+  margin-top: 10px;
   color: #fff;
   background: #259125;
 }
@@ -468,6 +482,9 @@ pre {
   font-weight: bold;
   text-transform: uppercase;
   color: #02ca4e;
+}
+.g-container .genre-title .title p {
+  margin-left: 10px;
 }
 .g-container .genre-title .genre-title .title .title-name p {
   font-weight: bold;

@@ -207,80 +207,51 @@ include('../assets/php/global/server.php');
 
         <div class="podcasts">
             <div class="cont">
-                <div class="pod-cont">
-                    <h2>
-                        Podcasts
-                    </h2>
-                    <div class="casts-row">
-                        <div class="cast-box">
-                            <a href="">
-                                <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
-                                        alt="">
+                <?php
+                $gethavens = mysqli_query($server, "SELECT * from audio_havens,journalists
+                        WHERE
+                        audio_havens.haven_journalist = journalists.id
+                        ORDER BY `haven_upload date` DESC,
+                        haven_upload_time DESC
+                        LIMIT 12
+                    ");
+                if (mysqli_num_rows($gethavens) > 0) {
+                    ?>
+                    <div class="pod-cont">
+                        <h2>
+                            Podcasts
+                        </h2>
+                        <div class="casts-row">
+                            <?php
+                            while ($dataHavens = mysqli_fetch_array($gethavens)) {
+                                ?>
+                                <div class="cast-box">
+                                    <a href="watch-haven.php?h=<?php echo $dataHavens['haven_id']; ?>">
+                                        <div class="img">
+                                            <img src="../assets/audio_havens/<?php echo $dataHavens['haven_image_name']; ?>"
+                                                alt="">
+                                        </div>
+                                        <div class="info">
+                                            <h4>
+                                                <?php echo $dataHavens['haven_title'] ?>
+                                            </h4>
+                                            <p>
+                                            <i class="fa fa-user"></i>
+                                            <?php echo $dataHavens['first_name']." ".$dataHavens['last_name']; ?>
+                                            </p>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="info">
-                                    <h4>
-                                        Podcast name: Episode Name
-                                    </h4>
-                                    <p>
-                                        Date: 31-19-2023
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="cast-box">
-                            <a href="">
-                                <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
-                                        alt="">
-                                </div>
-                                <div class="info">
-                                    <h4>
-                                        Podcast name: Episode Name
-                                    </h4>
-                                    <p>
-                                        Date: 31-19-2023
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="cast-box">
-                            <a href="">
-                                <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
-                                        alt="">
-                                </div>
-                                <div class="info">
-                                    <h4>
-                                        Podcast name: Episode Name
-                                    </h4>
-                                    <p>
-                                        Date: 31-19-2023
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="cast-box">
-                            <a href="">
-                                <div class="img">
-                                    <img src="../assets/images/Talk Show Podcast Cover Maker with Picture copy.jpg"
-                                        alt="">
-                                </div>
-                                <div class="info">
-                                    <h4>
-                                        Podcast name: Episode Name
-                                    </h4>
-                                    <p>
-                                        Date: 31-19-2023
-                                    </p>
-                                </div>
-                            </a>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
-
         <div class="fav-jou">
             <div class="cont">
                 <div class="fav-jou-cont">
@@ -337,5 +308,4 @@ include('../assets/php/global/server.php');
         ?>
     </div>
 </body>
-
 </html>

@@ -43,7 +43,7 @@ include("../assets/php/admins/session_checker.php");
                                             Haven Description
                                         </th>
                                         <th>
-                                            Haven Starting Date
+                                            Haven Upload time
                                         </th>
                                         <th>
                                             Haven Journalist
@@ -61,7 +61,8 @@ include("../assets/php/admins/session_checker.php");
                                     $get_All_articles = mysqli_query($server, "SELECT * from 
                                             audio_havens,journalists
                                             WHERE journalists.id = audio_havens.haven_journalist
-                                            ORDER BY haven_starting_date DESC
+                                            ORDER BY `haven_upload date` DESC,
+                                            `haven_upload_time` DESC
                                         ");
                                     if (mysqli_num_rows($get_All_articles) < 1) {
                                         ?>
@@ -86,13 +87,13 @@ include("../assets/php/admins/session_checker.php");
                                                     <?php echo $data_All_articles['haven_description']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $data_All_articles['haven_starting_date']; ?>
+                                                    <?php echo $data_All_articles['haven_upload date']." ".$data_All_articles['haven_upload_time']; ?>
                                                 </td>
                                                 <td>
                                                     <?php echo $data_All_articles['first_name'] . " " . $data_All_articles['last_name']; ?>
                                                 </td>
                                                 <td>
-                                                    <img src="../assets/podcasts/<?php echo $data_All_articles['haven_image_name']; ?>"
+                                                    <img src="../assets/audio_havens/<?php echo $data_All_articles['haven_image_name']; ?>"
                                                         width="100px">
                                                 </td>
                                                 <td>
@@ -115,7 +116,7 @@ include("../assets/php/admins/session_checker.php");
                                                     }
                                                     ?>
 
-                                                    <a href="edit-history.php?h=<?php echo $data_All_articles['haven_id'] ?>"
+                                                    <a href="edit-haven.php?h=<?php echo $data_All_articles['haven_id'] ?>"
                                                         class="edit">
                                                         <i class="fa fa-edit"></i>
                                                     </a>

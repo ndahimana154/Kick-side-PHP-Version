@@ -24,8 +24,8 @@
                             </li>
                             <?php
                             $getGenres = mysqli_query($server, "SELECT * from genres
-                  ORDER BY genre_name ASC
-               ");
+                                ORDER BY genre_name ASC
+                            ");
                             while ($dataGenre = mysqli_fetch_array($getGenres)) {
                                 ?>
                                 <li>

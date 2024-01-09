@@ -72,7 +72,7 @@ include('../assets/php/global/server.php');
                                     AND category = '$cat'
                                     ORDER BY 
                                     article_publish_time DESC
-                                    LIMIT 30
+                                    
                             ");
                             if (mysqli_num_rows($getCatArticles) < 1) {
                                 ?>

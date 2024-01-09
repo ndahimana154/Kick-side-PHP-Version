@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 05:51 PM
+-- Generation Time: Jan 09, 2024 at 06:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -82,8 +82,11 @@ CREATE TABLE `audio_havens` (
   `haven_title` text NOT NULL,
   `haven_description` text NOT NULL,
   `haven_image_name` text NOT NULL,
-  `haven_starting_date` varchar(255) NOT NULL,
+  `haven_link` text NOT NULL,
+  `haven_upload date` varchar(255) NOT NULL,
+  `haven_upload_time` varchar(255) NOT NULL,
   `haven_journalist` int(11) NOT NULL,
+  `other_participants` text NOT NULL,
   `haven_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -91,8 +94,45 @@ CREATE TABLE `audio_havens` (
 -- Dumping data for table `audio_havens`
 --
 
-INSERT INTO `audio_havens` (`haven_id`, `haven_title`, `haven_description`, `haven_image_name`, `haven_starting_date`, `haven_journalist`, `haven_status`) VALUES
-(1, 'f fdfvvf c c cv', 'ddsvv fv cvcvcxv', 'Podcast Cover - f fdfvvf c c cv.webp', '2024-01-06', 8, 'Disabled');
+INSERT INTO `audio_havens` (`haven_id`, `haven_title`, `haven_description`, `haven_image_name`, `haven_link`, `haven_upload date`, `haven_upload_time`, `haven_journalist`, `other_participants`, `haven_status`) VALUES
+(1, 'This is the haven TItle put here.', 'THis is the description. THis is the description.THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description.THis is the description.', 'Podcast Cover - f fdfvvf c c cv.webp', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dZ4olPw9laI?si=ZawFQySepBI2tOt7\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>', '2024-01-06', '', 8, '', 'Running'),
+(2, 'This is the haven TItle put here.', 'THis is the description. THis is the description.THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description.THis is the description.THis is the description. THis is the description.THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description.THis is the description.THis is the description. THis is the description.THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description. THis is the description.THis is the description.THis is the description.', 'Podcast Cover - ddsdd.webp', 'dvdsvd', '2024-01-09', '09:20', 9, 'dvsvsv, f fvv,vdsd  s,', 'Running'),
+(3, 'Fela Music - Utulips (Official Music Video)', 'Me, iji', 'Podcast Cover - Fela Music - Utulips (Official Music Video).webp', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/T3m1d8-gOGQ?si=d4CDy-C8TJ7iWCdh\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>', '2024-01-09', '11:11', 7, 'Me, YOu', 'Running'),
+(4, 'bfbb dfvfv', 'dsvdvs svdscd', 'Podcast Cover - bfbb dfvfv.webp', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/yzBa04z3I78?si=-xWJOUMXiQtY22Ni\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>', '2024-01-04', '11:16', 7, 'dcdcd', 'Running');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audio_havens_streams`
+--
+
+CREATE TABLE `audio_havens_streams` (
+  `stream_id` int(11) NOT NULL,
+  `haven` int(11) NOT NULL,
+  `streams_count` int(11) NOT NULL,
+  `stream_date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `audio_havens_streams`
+--
+
+INSERT INTO `audio_havens_streams` (`stream_id`, `haven`, `streams_count`, `stream_date`) VALUES
+(1, 1, 1, '2024-01-09 10:54:02'),
+(2, 1, 1, '2024-01-09 10:54:52'),
+(3, 1, 1, '2024-01-09 10:54:55'),
+(4, 1, 1, '2024-01-09 10:55:40'),
+(5, 1, 1, '2024-01-09 10:56:27'),
+(6, 1, 1, '2024-01-09 10:57:33'),
+(7, 2, 1, '2024-01-09 10:59:02'),
+(8, 1, 1, '2024-01-09 10:59:11'),
+(9, 1, 1, '2024-01-09 11:00:12'),
+(10, 1, 1, '2024-01-09 11:05:02'),
+(11, 1, 1, '2024-01-09 11:06:10'),
+(12, 1, 1, '2024-01-09 11:07:05'),
+(13, 3, 1, '2024-01-09 11:13:21'),
+(14, 4, 1, '2024-01-09 11:36:07'),
+(15, 3, 1, '2024-01-09 17:58:58');
 
 -- --------------------------------------------------------
 
@@ -362,7 +402,8 @@ INSERT INTO `news_articles` (`article_id`, `article_title`, `article_overview`, 
 (11, 'ggffvb b  bbb  g bbtb.yh h trbtr b', 'gfbfg gf gfx hg .jb gbtgb s  .htgbfvf ', 'pexels-ahmed-adly-1270184.jpg', 'dvdv v.uy tyn ,. trt ht', 8, 1, '2024-01-03 07:18:18'),
 (13, ' rebfb regr gr g ', 'gr ggr gr g grgr ag', 'Podcast_1 copy.jpg', 'gr rrgrgergregrregeerg', 8, 2, '2024-01-03 07:26:40'),
 (16, 'dscdscdscdc dsvds d  d sdc sd x ', 'dsd   ', 'Screenshot 2019-12-24 at 10.13.53 am copy.jpg', ' x xxcxcx x x xc c c cdsfrev f fgrbtybg gh bgfb g  ', 6, 1, '2024-01-03 13:54:49'),
-(20, 'hgj fgfj hcn sf ree hh', 'g htt jyhryjyj yjyyjyj', 'victor-trumper.webp', ' jyjdy djdhdh trhthtdhtdhd hdgdghgn', 8, 1, '2024-01-06 10:47:07');
+(20, 'hgj fgfj hcn sf ree hh', 'g htt jyhryjyj yjyyjyj', 'victor-trumper.webp', ' jyjdy djdhdh trhthtdhtdhd hdgdghgn', 8, 1, '2024-01-06 10:47:07'),
+(21, 'Exclusive: Fabrizio Romano on Arsenal star’s future as potential replacement transfer linked.', 'It doesn’t currently look like anything is close for Arsenal midfielder Thomas Partey to leave the club despite transfer rumours involving a potential replacement in the form of Amadou Onana being targeted.', 'as-monaco-arsenal-friendly-thomas-partey-900x600.jpg.webp', 'The Gunners have an appreciation for Onana after his fine form at Everton, according to Fabrizio Romano here, but the journalist was also keen to point out that this doesn’t necessarily mean that anything is happening with Partey.\r\n\r\nSpeaking exclusively to CaughtOffside for his Daily Briefing column, Romano explained that the Ghana international looked like he could leave in the summer before Mikel Arteta changed his mind and decided to keep him.\r\n\r\nAnd now, it seems like it might again be a saga to watch in the summer, according to Romano, with Partey also currently injured, meaning any departure looks more complicated.\r\n\r\npalace arsenal thomas partey pic\r\nThomas Partey in action for Arsenal\r\nbundesligaglobal-ott logo BUNDESLIGA GLOBAL (OTT)\r\nLOADING OFFICIAL CONTENT\r\n“We know Arsenal have issues in midfield because Thomas Partey has barely played this season due to injury. Onana is a fine talent who could offer something similar in midfield, but it’s still early to know what will happen with Onana, and also with Partey,” Romano said.\r\n\r\nMore Stories / Latest News\r\nHighly-rated striker has rejected Arsenal and Man United for German giants\r\nHighly-rated striker has rejected Arsenal and Man United for German giants\r\n48 minutes ago\r\nLiverpool legend cites reasons why Jordan Henderson wants out of Saudi\r\nLiverpool legend cites reasons why Jordan Henderson wants out of Saudi\r\n51 minutes ago\r\n“He isn’t good enough to play against top sides”, ex-Arsenal player’s brutal assessment\r\n“He isn’t good enough to play against top sides”, ex-Arsenal player’s brutal assessment\r\n58 minutes ago\r\n“If you remember in the summer, Partey was already considered as candidate for sale until end of June, but then Mikel Arteta decided to keep him; so anything can happen there in the summer. For now it’s very quiet, as he’s injured now so there are no concrete updates so far.”\r\n\r\nArsenal fans would surely welcome a signing like Onana to replace Partey, however, as the former Atletico Madrid man has had so much trouble staying fit in recent times, and just doesn’t quite seem reliable enough, even if he’s a quality player when he is available.', 8, 1, '2024-01-09 11:50:00');
 
 -- --------------------------------------------------------
 
@@ -600,7 +641,12 @@ INSERT INTO `news_articles_views` (`id`, `article`, `view_count`, `time`) VALUES
 (328, 20, 1, 2147483647),
 (329, 20, 1, 2147483647),
 (330, 6, 1, 2147483647),
-(331, 6, 1, 2147483647);
+(331, 6, 1, 2147483647),
+(332, 6, 1, 2147483647),
+(333, 7, 1, 2147483647),
+(334, 21, 1, 2147483647),
+(335, 21, 1, 2147483647),
+(336, 21, 1, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -676,6 +722,13 @@ ALTER TABLE `arenas`
 ALTER TABLE `audio_havens`
   ADD PRIMARY KEY (`haven_id`),
   ADD KEY `dsfdsfdsdsdf` (`haven_journalist`);
+
+--
+-- Indexes for table `audio_havens_streams`
+--
+ALTER TABLE `audio_havens_streams`
+  ADD PRIMARY KEY (`stream_id`),
+  ADD KEY `dsfsdfdsfdsvd` (`haven`);
 
 --
 -- Indexes for table `categories`
@@ -808,7 +861,13 @@ ALTER TABLE `arenas`
 -- AUTO_INCREMENT for table `audio_havens`
 --
 ALTER TABLE `audio_havens`
-  MODIFY `haven_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `haven_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `audio_havens_streams`
+--
+ALTER TABLE `audio_havens_streams`
+  MODIFY `stream_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -874,7 +933,7 @@ ALTER TABLE `league_year_teams`
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `news_articles_categories`
@@ -886,7 +945,7 @@ ALTER TABLE `news_articles_categories`
 -- AUTO_INCREMENT for table `news_articles_views`
 --
 ALTER TABLE `news_articles_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -915,6 +974,12 @@ ALTER TABLE `arenas`
 --
 ALTER TABLE `audio_havens`
   ADD CONSTRAINT `dsfdsfdsdsdf` FOREIGN KEY (`haven_journalist`) REFERENCES `journalists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `audio_havens_streams`
+--
+ALTER TABLE `audio_havens_streams`
+  ADD CONSTRAINT `dsfsdfdsfdsvd` FOREIGN KEY (`haven`) REFERENCES `audio_havens` (`haven_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `categories`

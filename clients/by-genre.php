@@ -68,7 +68,7 @@ include('../assets/php/global/server.php');
                                     news_articles
                                     WHERE article_genre = '$genre'
                                     ORDER BY article_publish_time DESC
-                                    LIMIT 30
+                                    
                             ");
                             if (mysqli_num_rows($getGenresArticles) < 1) {
                                 ?>

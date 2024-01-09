@@ -42,10 +42,13 @@ include("../assets/php/admins/session_checker.php");
                                     $haname = mysqli_real_escape_string($server, $_POST['han']);
                                     $hajou = mysqli_real_escape_string($server, $_POST['haj']);
                                     $hast = mysqli_real_escape_string($server, $_POST['has']);
+                                    $hatime = mysqli_real_escape_string($server, $_POST['hat']);
                                     $hadesc = mysqli_real_escape_string($server, $_POST['had']);
+                                    $haylink = mysqli_real_escape_string($server, $_POST['hyl']);
+                                    $haop = mysqli_real_escape_string($server, $_POST['hop']);
                                     $haimagename = $_FILES['hai']['name'];
-
-                                    $target_dir = '../assets/podcasts/';
+                                    
+                                    $target_dir = '../assets/audio_havens/';
                                     $new_imagename = "Podcast Cover - " . $haname . ".webp";
 
                                     $target_file = $target_dir . $new_imagename;
@@ -68,8 +71,8 @@ include("../assets/php/admins/session_checker.php");
                                         </div>
                                         <?php
                                     } elseif (move_uploaded_file($_FILES['hai']['tmp_name'], $target_file)) {
-                                        $save = mysqli_query($server, "INSERT INTO `audio_havens` (`haven_id`, `haven_title`, `haven_description`, `haven_image_name`, `haven_starting_date`, `haven_journalist`, `haven_status`) 
-                                            VALUES (NULL, '$haname', '$hadesc', '$new_imagename', '$hast', '$hajou', 'Running')
+                                        $save = mysqli_query($server, "INSERT INTO `audio_havens` (`haven_id`, `haven_title`, `haven_description`, `haven_image_name`, `haven_link`, `haven_upload date`, `haven_upload_time`, `haven_journalist`, `other_participants`, `haven_status`) 
+                                            VALUES (NULL, '$haname', '$hadesc', '$new_imagename','$haylink', '$hast','$hatime', '$hajou','$haop', 'Running')
                                         ");
                                         if ($save) {
                                             ?>
@@ -130,16 +133,34 @@ include("../assets/php/admins/session_checker.php");
                                     </select>
                                 </p>
                                 <p>
-                                    <label for="Audio Haven Starting Date">
-                                        Audio Haven Starting Date
+                                    <label for="Audio Haven Other Particpants">
+                                        Audio Haven Other Participants
+                                    </label>
+                                    <textarea name="hop" placeholder="Type..." required></textarea>
+                                </p>
+                                <p>
+                                    <label for="Audio Haven Upload Date">
+                                        Audio Haven Upload date.
                                     </label>
                                     <input type="date" name="has" id="">
+                                </p>
+                                <p>
+                                    <label for="Audio Haven Upload Date">
+                                        Audio Haven Upload time.
+                                    </label>
+                                    <input type="time" name="hat" id="">
                                 </p>
                                 <p>
                                     <label for="Audio Haven Description">
                                         Audio Haven Description
                                     </label>
                                     <textarea name="had" placeholder="Type..." required></textarea>
+                                </p>
+                                <p>
+                                    <label for="Audio Haven Youtube Link">
+                                        Audio Haven Youtube Link
+                                    </label>
+                                    <textarea name="hyl" placeholder="Type..." required></textarea>
                                 </p>
                                 <p>
                                     <label for="Audio Haven Image">
